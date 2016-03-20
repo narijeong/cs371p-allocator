@@ -16,6 +16,15 @@
 #include <new>       // bad_alloc, new
 #include <stdexcept> // invalid_argument
 
+
+#define SENTINEL_TYPE (int)
+
+static int abs_val(int x) {
+	if (x < 0)
+		return x * -1;
+	return x;
+}
+
 // ---------
 // Allocator
 // ---------
@@ -70,8 +79,29 @@ class Allocator {
          * <your documentation>
          */
         bool valid () const {
-            // <your code>
-            return true;}
+			/* Have to account for N bytes */
+			int counted = 0;
+
+			while (counted < N) {
+				/* Add value to get to beginning sentinel */
+				SENTINEL_TYPE beg_sentinel = abs_val(this->a[counted]);
+
+				counted += beg_sentinel + sizeof(SENTINEL_TYPE);
+				
+				/* Check beginning and ending sentinal matches */
+				SENTINEL_TYPE end_sentinel = abs_val(this->a[counted]);
+				if (beg_sentinel != end_sentinel)
+					return false;
+
+				/* Increment counted to reflect ending sentinel */
+				counted += sizeof(SENTINEL_TYPE);
+			}
+
+			if(counted == N)
+				return true;
+
+			return false;
+		}
 
         /**
          * O(1) in space
@@ -94,9 +124,10 @@ class Allocator {
          * throw a bad_alloc exception, if N is less than sizeof(T) + (2 * sizeof(int))
          */
         Allocator () {
-            (*this)[0] = 0; // replace!
-            // <your code>
-            assert(valid());}
+            (*this)[0] = N;
+			(*this)[N - 1] = N;
+            assert(valid());
+		}
 
         // Default copy, destructor, and copy assignment
         // Allocator  (const Allocator&);
@@ -118,7 +149,8 @@ class Allocator {
         pointer allocate (size_type n) {
             // <your code>
             assert(valid());
-            return nullptr;}             // replace!
+            return nullptr;
+		}
 
         // ---------
         // construct
