@@ -79,22 +79,35 @@ class Allocator {
          * <your documentation>
          */
         bool valid () const {
+            using namespace std;
+            //testing::internal::CaptureStdout();
 			/* Have to account for N bytes */
 			int counted = 0;
-
+            bool seen_free_once = false;
 			while (counted < N) {
 				/* Add value to get to beginning sentinel */
-				SENTINEL_TYPE beg_sentinel = abs_val(this->a[counted]);
+				SENTINEL_TYPE beg_sentinel = this->a[counted];
+                
+                cout << beg_sentinel << endl;
 
-				counted += beg_sentinel + sizeof(SENTINEL_TYPE);
+                if(this->a[counted] > 0){
+                    if(seen_free_once)
+                        return false;
+                    seen_free_once = true;
+                }
+                else{
+                    seen_free_once = false;
+                }
+
+				counted += abs_val(beg_sentinel) + 2 * sizeof(SENTINEL_TYPE);
 				
 				/* Check beginning and ending sentinal matches */
-				SENTINEL_TYPE end_sentinel = abs_val(this->a[counted]);
+				SENTINEL_TYPE end_sentinel = this->a[counted];
+                cout << end_sentinel << endl;
 				if (beg_sentinel != end_sentinel)
 					return false;
 
-				/* Increment counted to reflect ending sentinel */
-				counted += sizeof(SENTINEL_TYPE);
+
 			}
 
 			if(counted == N)
@@ -115,7 +128,7 @@ class Allocator {
 
     public:
         // ------------
-        // constructors
+        // constructorss
         // ------------
 
         /**
@@ -124,8 +137,10 @@ class Allocator {
          * throw a bad_alloc exception, if N is less than sizeof(T) + (2 * sizeof(int))
          */
         Allocator () {
-            (*this)[0] = N;
-			(*this)[N - 1] = N;
+            using namespace std;
+            (*this)[0] = N - 2 * sizeof(SENTINEL_TYPE);
+			(*this)[N - 4] = N - 2 * sizeof(SENTINEL_TYPE);
+            cout << "Size of heap is " << N << endl;
             assert(valid());
 		}
 
@@ -147,6 +162,7 @@ class Allocator {
          * throw a bad_alloc exception, if n is invalid
          */
         pointer allocate (size_type n) {
+            using namespace std;
 			SENTINEL_TYPE begin = this->a[0];
 			int position = 0;
             while(position < N && begin < n + 2*sizeof(SENTINEL_TYPE)) {
@@ -161,7 +177,9 @@ class Allocator {
 			if(a[position] < n+2*sizeof(SENTINEL_TYPE)+1) {
 				int sentinel = a[position];
 				a[position]*=-1;
-				a[position+sentinel]*=-1; 
+				a[position+sentinel]*=-1;
+                cout << "Allocating whole block " << endl;
+                assert(valid()); 
 				return (pointer)&a[position+sizeof(SENTINEL_TYPE)];
 			}
 			// spliting the block to two
@@ -170,11 +188,10 @@ class Allocator {
 			a[position] = -1*n;
 			a[position+sizeof(SENTINEL_TYPE)+n] = -1*n;
 			a[position+2*sizeof(SENTINEL_TYPE)+n] = new_block_size;
-			a[position+3*sizeof(SENTINEL_TYPE)+n+new_block_size] = new_block_size;	
-			return (pointer)&a[position+sizeof(SENTINEL_TYPE)];
-			
-            assert(valid());
-            return nullptr;
+			a[position+3*sizeof(SENTINEL_TYPE)+n+new_block_size] = new_block_size;
+            cout << "Splitting block into two. required " << n << " bytes " << endl;
+			assert(valid());
+            return (pointer)&a[position+sizeof(SENTINEL_TYPE)];
 		}
 
         // ---------
@@ -201,8 +218,42 @@ class Allocator {
          * <your documentation>
          */
         void deallocate (pointer p, size_type) {
-            // <your code>
-            assert(valid());}
+            /* Make sure p is valid */
+            void* voidp = (void*) p;
+            if(voidp < a || voidp > a+N)
+                throw std::invalid_argument("Pointer is out of bounds");
+
+            /* Assume this block is beginning and end */
+            int* beginning_sentinel = (int*)voidp - sizeof(SENTINEL_TYPE);
+            int data = *beginning_sentinel * -1;
+            int* end_sentinel = (int*)voidp + data;
+
+            /* Check if block before needs to be combined */
+            /* p cannot be first block */
+            if((void*)beginning_sentinel != (void*)a){
+                int* before_end_sentinel = beginning_sentinel - sizeof(SENTINEL_TYPE);
+               
+                if(*before_end_sentinel > 0){
+                    data += *before_end_sentinel + 2*sizeof(SENTINEL_TYPE);
+                    beginning_sentinel = before_end_sentinel + (*before_end_sentinel * -1) + (-1 * sizeof(SENTINEL_TYPE));
+                }
+            }
+            /* Check if block after needs to be combined */
+            /* p cannot be last block */
+            if((void*)end_sentinel != (void*)(a + N - sizeof(SENTINEL_TYPE))){
+                int* after_begin_sentinel = end_sentinel + sizeof(SENTINEL_TYPE);
+                if(*after_begin_sentinel > 0){
+                    data += *after_begin_sentinel + 2*sizeof(SENTINEL_TYPE);
+                    end_sentinel = after_begin_sentinel + *after_begin_sentinel + sizeof(SENTINEL_TYPE);
+                }
+            }
+
+            /* Combine */
+            *beginning_sentinel = data;
+            *end_sentinel = data;
+
+            assert(valid());
+        }
 
         // -------
         // destroy
