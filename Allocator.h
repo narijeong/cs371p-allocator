@@ -17,7 +17,7 @@
 #include <stdexcept> // invalid_argument
 
 
-#define SENTINEL_TYPE (int)
+#define SENTINEL_TYPE int
 
 static int abs_val(int x) {
 	if (x < 0)
@@ -147,7 +147,32 @@ class Allocator {
          * throw a bad_alloc exception, if n is invalid
          */
         pointer allocate (size_type n) {
-            // <your code>
+			SENTINEL_TYPE begin = this->a[0];
+			int position = 0;
+            while(position < N && begin < n + 2*sizeof(SENTINEL_TYPE)) {
+				position += (begin + 2*sizeof(SENTINEL_TYPE));
+				begin = a[position];
+			}
+		
+			if(position >= N)
+				throw std::bad_alloc();
+
+			// allocating the whole block
+			if(a[position] < n+2*sizeof(SENTINEL_TYPE)+1) {
+				int sentinel = a[position];
+				a[position]*=-1;
+				a[position+sentinel]*=-1; 
+				return (pointer)&a[position+sizeof(SENTINEL_TYPE)];
+			}
+			// spliting the block to two
+			int whole_block = a[position];
+			int new_block_size = whole_block-2*sizeof(SENTINEL_TYPE)-n;
+			a[position] = -1*n;
+			a[position+sizeof(SENTINEL_TYPE)+n] = -1*n;
+			a[position+2*sizeof(SENTINEL_TYPE)+n] = new_block_size;
+			a[position+3*sizeof(SENTINEL_TYPE)+n+new_block_size] = new_block_size;	
+			return (pointer)&a[position+sizeof(SENTINEL_TYPE)];
+			
             assert(valid());
             return nullptr;
 		}
