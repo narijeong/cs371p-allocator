@@ -88,7 +88,7 @@ class Allocator {
 				/* Add value to get to beginning sentinel */
 				SENTINEL_TYPE beg_sentinel = this->a[counted];
                 
-                cout << beg_sentinel << endl;
+                cout << "beg_sentinel: " << beg_sentinel << endl;
 
                 if(this->a[counted] > 0){
                     if(seen_free_once)
@@ -99,11 +99,12 @@ class Allocator {
                     seen_free_once = false;
                 }
 
-				counted += abs_val(beg_sentinel) + 2 * sizeof(SENTINEL_TYPE);
-				
+				counted += abs_val(beg_sentinel) + sizeof(SENTINEL_TYPE);
+				cout << "counted[]: " << counted << endl;
 				/* Check beginning and ending sentinal matches */
 				SENTINEL_TYPE end_sentinel = this->a[counted];
-                cout << end_sentinel << endl;
+                cout << "end_sentinel: " << end_sentinel << endl;
+                counted += sizeof(SENTINEL_TYPE);
 				if (beg_sentinel != end_sentinel)
 					return false;
 
