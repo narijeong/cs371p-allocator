@@ -113,7 +113,6 @@ private:
 
                 if(counted == N)
                         return true;
-
                 return false;
         }
 
