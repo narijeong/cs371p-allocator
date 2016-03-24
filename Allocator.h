@@ -178,12 +178,12 @@ public:
                 if(n <= 0){
                     throw std::bad_alloc();
                 }
-                
+
                 n = n * sizeof(T);
                 SENTINEL_TYPE begin = this->a[0];
                 int position = 0;
                 while(position < N && begin < n + 2 * sizeof(SENTINEL_TYPE)) {
-                        position += (begin + 2*sizeof(SENTINEL_TYPE));
+                        position += (begin + 2 * sizeof(SENTINEL_TYPE));
                         begin = a[position];
                 }
 
@@ -193,20 +193,20 @@ public:
                 // allocating the whole block
                 if (a[position] < n + 2 * sizeof(SENTINEL_TYPE) + 1) {
                         int sentinel = a[position];
-                        a[position]*=-1;
-                        a[position+sentinel]*=-1;
+                        a[position] *= -1;
+                        a[position + sentinel] *= -1;
                         assert(valid());
-                        return (pointer)&a[position+sizeof(SENTINEL_TYPE)];
+                        return (pointer) &a[position + sizeof(SENTINEL_TYPE)];
                 }
-                // spliting the block to two
+                // spliting the block into two blocks
                 int whole_block = a[position];
-                int new_block_size = whole_block-2*sizeof(SENTINEL_TYPE)-n;
-                a[position] = -1*n;
-                a[position+sizeof(SENTINEL_TYPE)+n] = -1*n;
-                a[position+2*sizeof(SENTINEL_TYPE)+n] = new_block_size;
-                a[position+3*sizeof(SENTINEL_TYPE)+n+new_block_size] = new_block_size;
+                int new_block_size = whole_block - 2 * sizeof(SENTINEL_TYPE) - n;
+                a[position] = -1 * n;
+                a[position + sizeof(SENTINEL_TYPE) + n] = -1 * n;
+                a[position + 2 * sizeof(SENTINEL_TYPE) + n] = new_block_size;
+                a[position + 3 * sizeof(SENTINEL_TYPE) + n + new_block_size] = new_block_size;
                 assert(valid());
-                return (pointer)&a[position+sizeof(SENTINEL_TYPE)];
+                return (pointer) &a[position + sizeof(SENTINEL_TYPE)];
         }
 
         // ---------
@@ -231,15 +231,15 @@ public:
          * O(1) in time
          * after deallocation adjacent free blocks must be coalesced
          * throw an invalid_argument exception, if p is invalid
-         * <your documentation>
          */
         void deallocate(pointer p, size_type n) {
 
                 /* Make sure p is valid */
-                if((void*)p < &a[4] || (void*)p > &a[N-4])
+                if((void*)p < &a[4] || (void*)p > &a[N - 4])
                         throw std::invalid_argument("Pointer is out of bounds");
 
                 int index = (char*)p - &a[0];
+
                 /* Assume this block is beginning and end */
                 int begin_sentinel_index = index - 4;
                 int data = a[begin_sentinel_index] * -1;
