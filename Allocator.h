@@ -318,7 +318,7 @@ public:
                 int before_block_sentinel_index = begin_sentinel_index - sizeof(SENTINEL_TYPE);
                 cout << "before_block_sentinel_index " << before_block_sentinel_index << endl;
                 cout << "range " << sizeof(T) + sizeof(SENTINEL_TYPE) << endl; 
-                if(before_block_sentinel_index >= (sizeof(T) + sizeof(SENTINEL_TYPE))) {
+                if(before_block_sentinel_index >= (int)(sizeof(T) + sizeof(SENTINEL_TYPE))) {
 						if((*this)[before_block_sentinel_index] > 0) {
 							cout << "combining with the before block" << endl;
 							data += (*this)[before_block_sentinel_index] + 2 * sizeof(SENTINEL_TYPE);
@@ -330,7 +330,7 @@ public:
                 /* Check if block after needs to be combined */
                 /* p cannot be last block */
                 int after_block_sentinel_index = val_index + (*this)[end_sentinel_index]*-1 + sizeof(SENTINEL_TYPE);
-                if(after_block_sentinel_index <= (N - sizeof(T) - sizeof(SENTINEL_TYPE))) {
+                if(after_block_sentinel_index <= (int)(N - sizeof(T) - sizeof(SENTINEL_TYPE))) {
 					    if((*this)[after_block_sentinel_index] > 0) {
 							cout << "combining with the after block" << endl;
 							cout << "after_block_sentinel " << (*this)[after_block_sentinel_index] << endl;

@@ -238,13 +238,19 @@ TEST(TestAllocatorDeallocate, deallocate1) {
 
 TEST(TestAllocatorDeallocate, deallocate2) {    
 	Allocator<char, 100> x;
+	ASSERT_EQ(x[0], 92);
+	ASSERT_EQ(x[96], 92);
     char* p = x.allocate(11);
+    ASSERT_EQ(x[0], -11);
+    ASSERT_EQ(x[15], -11);
+    ASSERT_EQ(x[19], 73);
+    ASSERT_EQ(x[96], 73);
     if (p != nullptr) {
         x.deallocate(p, 11);
-        //ASSERT_EQ(x[0], 11);
-        //ASSERT_EQ(x[19], 11);
     }
-;}/*
+    ASSERT_EQ(x[0], 92);
+    ASSERT_EQ(x[96], 92);
+;}
 TEST(TestAllocatorDeallocate, deallocate3) {
 
     Allocator<int, 100> x;
@@ -254,11 +260,6 @@ TEST(TestAllocatorDeallocate, deallocate3) {
     int* s = x.allocate(1);
     int* t = x.allocate(1);
     // ASSERT_EQ(true, false);
-    ASSERT_EQ(x[0] != null, true);
-    ASSERT_EQ(x[0] != null, true);
-    ASSERT_EQ(x[0] != null, true);
-    ASSERT_EQ(x[0] != null, true);
-
 
     if (p != nullptr && q != nullptr && r != nullptr && s != nullptr && t != nullptr) {
         x.deallocate(p, 1);
@@ -279,5 +280,5 @@ TEST(TestAllocatorDeallocate, deallocate3) {
     } else {
         ASSERT_EQ(true, false);
     }
-}*/
+}
 
