@@ -165,7 +165,7 @@ TYPED_TEST(TestAllocator3, test_10) {
 }
 
 // --------------
-// Our Test casses
+// Our Test cases
 // --------------
 
 TEST(TestAllocatorConstructor, construct_int) {
