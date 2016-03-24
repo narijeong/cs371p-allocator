@@ -104,17 +104,18 @@ private:
          * 2. Ensure that there are no two free blocks in a row
          */
         bool valid () const {
+			std::cout << "printing valid()" << std::endl;
                 /* Have to account for N bytes */
             using namespace std;
             cout << N << endl;
                 int counted = 0;
                 bool seen_free_once = false;
-                //std::cout << "N " << N; 
 
                 while (counted < N) {
                         /* Add value to get to beginning sentinel */
                         int beg_sentinel = (*this)[counted];
                         cout << "beg sent: " << beg_sentinel << endl;
+                        cout << "beg index: " << counted << endl;
                         /* Checking for consecutive free blocks */
                         if((*this)[counted] > 0) {
                                 if(seen_free_once){
@@ -127,10 +128,10 @@ private:
                         }
 
                         counted += abs_val(beg_sentinel) + sizeof(SENTINEL_TYPE);
-                        cout << "counted: " << counted << endl;
                         /* Check beginning and ending sentinal matches */
                         SENTINEL_TYPE end_sentinel = (*this)[counted];
                         cout << "end sent: " << end_sentinel << endl;
+                        cout << "beg index: " << counted << endl;
                         if (beg_sentinel != end_sentinel){
                             cout << "not matching sentinels" << endl;
                             cout << "beginning sentinel " << beg_sentinel <<endl;
@@ -145,6 +146,8 @@ private:
 
                 cout << "unaccounted for" <<endl;
                 return false;
+                std::cout << "end valid()" << std::endl;
+
         }
 
         /**
@@ -290,42 +293,55 @@ public:
          */
         void deallocate(pointer p, size_type n) {
                 using namespace std;
+                
                 cout << endl;
                 cout << "DEALLOCATE" << endl;
+                
                 assert(valid());
                 /* Make sure p is valid */
-                if((void*)p < &(*this)[4] || (void*)p > &(*this)[N - 4])
+                if((void*)p < &(*this)[sizeof(SENTINEL_TYPE)] || (void*)p > &(*this)[N - sizeof(SENTINEL_TYPE)])
                         throw std::invalid_argument("Pointer is out of bounds");
-
-                int index = (char*)p - &a[0];
-                cout << "given index " << index << endl;
+				//TO DO: see if p is deallocabable pointer inside the bounds(check first and last sentinel same, and positive)
+                
+                int val_index = (char*)p - &a[0];
+                cout << "given value index " << val_index << endl;
                 /* Assume this block is beginning and end */
-                int begin_sentinel_index = index - 4;
+                int begin_sentinel_index = val_index - sizeof(SENTINEL_TYPE);
                 int data = (*this)[begin_sentinel_index] * -1;
-                int end_sentinel_index = index + data;
-                cout << "Before combine" <<  begin_sentinel_index << endl;
+                int end_sentinel_index = val_index + data;
+                cout << "begin_sentinel_index " <<  begin_sentinel_index << endl;
+                cout << "end_sentinel_index " <<  end_sentinel_index << endl;
+                
                 /* Check if block before needs to be combined */
                 /* p cannot be first block */
-                if(begin_sentinel_index >= 0) {
-                        int before_block_sentinel_index = begin_sentinel_index - sizeof(SENTINEL_TYPE);
+                int before_block_sentinel_index = begin_sentinel_index - sizeof(SENTINEL_TYPE);
+                if(before_block_sentinel_index >= (sizeof(T) + sizeof(SENTINEL_TYPE))) {
+						if((*this)[before_block_sentinel_index] > 0) {
+							cout << "combining with the before block" << endl;
+							data += (*this)[before_block_sentinel_index] + 2 * sizeof(SENTINEL_TYPE);
+							begin_sentinel_index = before_block_sentinel_index - (*this)[before_block_sentinel_index] - sizeof(SENTINEL_TYPE);
+							cout << "changed begin_sentinel_index " << begin_sentinel_index << endl;
+						}
+				}
 
-                        if ((*this)[before_block_sentinel_index] > 0) {
-                                data += (*this)[before_block_sentinel_index] + 2 * sizeof(SENTINEL_TYPE);
-                                begin_sentinel_index = before_block_sentinel_index - (*this)[before_block_sentinel_index] - sizeof(SENTINEL_TYPE);
-                        }
-                }
                 /* Check if block after needs to be combined */
                 /* p cannot be last block */
-                if(end_sentinel_index <= N - sizeof(SENTINEL_TYPE)) {
-                        int after_block_sentinel = end_sentinel_index + sizeof(SENTINEL_TYPE);
-                        if((*this)[after_block_sentinel] > 0) {
-                                data += (*this)[after_block_sentinel] + 2 * sizeof(SENTINEL_TYPE);
-                                end_sentinel_index = after_block_sentinel + (*this)[after_block_sentinel] + sizeof(SENTINEL_TYPE);
-
-                        }
+                int after_block_sentinel_index = val_index + (*this)[end_sentinel_index]*-1 + sizeof(SENTINEL_TYPE);
+                if(after_block_sentinel_index <= (N - sizeof(T) - sizeof(SENTINEL_TYPE))) {
+					    if((*this)[after_block_sentinel_index] > 0) {
+							cout << "combining with the after block" << endl;
+							cout << "after_block_sentinel " << (*this)[after_block_sentinel_index] << endl;
+							data += (*this)[after_block_sentinel_index] + 2 * sizeof(SENTINEL_TYPE);
+							end_sentinel_index = after_block_sentinel_index + sizeof(SENTINEL_TYPE) + (*this)[after_block_sentinel_index];
+							cout << "changed end_sentinel_index " << end_sentinel_index << endl;	
+						}					
                 }
 
                 /* Combine */
+                cout << "assign begin and end sentinels after deallocating" << endl;
+                cout << "begin_sentinel_index " <<  begin_sentinel_index << endl;
+                cout << "end_sentinel_index " <<  end_sentinel_index << endl;
+                cout << "data " << data << endl;
                 (*this)[begin_sentinel_index] = data;
                 (*this)[end_sentinel_index] = data;
                 assert(valid());
