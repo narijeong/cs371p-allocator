@@ -35,7 +35,6 @@ TestAllocator: Allocator.h TestAllocator.c++
 TestAllocator.tmp: TestAllocator
 	$(VALGRIND) ./TestAllocator --track-origins=yes                                        >  TestAllocator.tmp 2>&1
 	$(GCOV) -b TestAllocator.c++ | grep -A 5 "File 'TestAllocator.c++'" >> TestAllocator.tmp
-	$(GCOV) -b Allocator.h | grep -A 5 "File 'Allocator.h'" >> TestAllocator.tmp
 	cat TestAllocator.tmp
 
 check:
