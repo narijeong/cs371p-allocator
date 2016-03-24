@@ -75,6 +75,17 @@ public:
         }
 
 private:
+		// FRIEND_TEST for gtest
+        FRIEND_TEST(TestAllocator, valid1);
+        FRIEND_TEST(TestAllocator, valid2);
+        FRIEND_TEST(TestAllocator, valid3);        
+        FRIEND_TEST(TestAllocator, allocate1);        
+        FRIEND_TEST(TestAllocator, allocate2);        
+        FRIEND_TEST(TestAllocator, allocate3);        
+        FRIEND_TEST(TestAllocator, deallocate1);        
+        FRIEND_TEST(TestAllocator, deallocate2);        
+        FRIEND_TEST(TestAllocator, deallocate3); 
+        
         // ----
         // data
         // ----
@@ -138,6 +149,8 @@ private:
         int& operator [] (int i) {
                 return *reinterpret_cast<int*>(&a[i]);
         }
+        
+        
 
 public:
         // ------------
