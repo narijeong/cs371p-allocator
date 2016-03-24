@@ -165,36 +165,35 @@ TYPED_TEST(TestAllocator3, test_10) {
 }
 
 // --------------
-// Test casses
+// Our Test casses
 // --------------
 
-    TEST(TestAllocatorConstructor, construct_int) {
-        const int N = 100;
-        Allocator<int, N> x;
-        ASSERT_EQ(x[0], N - 2 * sizeof(SENTINEL_TYPE));
-        ASSERT_EQ(x[N - sizeof(SENTINEL_TYPE)], N - 2 * sizeof(SENTINEL_TYPE));
-    }
+TEST(TestAllocatorConstructor, construct_int) {
+    const int N = 100;
+    Allocator<int, N> x;
+    ASSERT_EQ(x[0], N - 2 * sizeof(SENTINEL_TYPE));
+    ASSERT_EQ(x[N - sizeof(SENTINEL_TYPE)], N - 2 * sizeof(SENTINEL_TYPE));
+}
     
-    TEST(TestAllocatorConstructor, construct_exception) {
-        try{
-            Allocator<int, sizeof(int)> x;
-            FAIL();
-        }catch(const std::bad_alloc& e){
-            SUCCEED();
-            return;
-        }catch(...){
-            FAIL();
-        }
+TEST(TestAllocatorConstructor, construct_exception) {
+    try{
+        Allocator<int, sizeof(int)> x;
         FAIL();
-    }   
-
-    TEST(TestAllocatorConstructor, construct_double) {
-        const int N = 100;
-        Allocator<double, N> x;
-        ASSERT_EQ(x[0], N - 2 * sizeof(SENTINEL_TYPE));
-        ASSERT_EQ(x[N - sizeof(SENTINEL_TYPE)], N - 2 * sizeof(SENTINEL_TYPE));
+    }catch(const std::bad_alloc& e){
+        SUCCEED();
+        return;
+    }catch(...){
+        FAIL();
     }
+    FAIL();
+}   
 
+TEST(TestAllocatorConstructor, construct_double) {
+    const int N = 100;
+    Allocator<double, N> x;
+    ASSERT_EQ(x[0], N - 2 * sizeof(SENTINEL_TYPE));
+    ASSERT_EQ(x[N - sizeof(SENTINEL_TYPE)], N - 2 * sizeof(SENTINEL_TYPE));
+}
 
 TEST(TestAllocatorValid, valid1) {
 	Allocator<int, 105> x;
@@ -236,16 +235,49 @@ TEST(TestAllocatorDeallocate, deallocate1) {
 	ASSERT_EQ(x[36], -8);
 	ASSERT_EQ(x[52], 40);
 	;}
-/*
-TEST(TestAllocatorDeallocate, deallocate2) {
-;}
-TEST(TestAllocatorDeallocate, deallocate3) {
-    Allocator<int, 100> x;
-    int* p = x.allocate(21);
+
+TEST(TestAllocatorDeallocate, deallocate2) {    
+	Allocator<char, 100> x;
+    char* p = x.allocate(11);
     if (p != nullptr) {
-        x.deallocate(p, (size_t) 21);
+        x.deallocate(p, 11);
+        //ASSERT_EQ(x[0], 11);
+        //ASSERT_EQ(x[19], 11);
+    }
+;}/*
+TEST(TestAllocatorDeallocate, deallocate3) {
+
+    Allocator<int, 100> x;
+    int* p = x.allocate(1);
+    int* q = x.allocate(1);
+    int* r = x.allocate(1);
+    int* s = x.allocate(1);
+    int* t = x.allocate(1);
+    // ASSERT_EQ(true, false);
+    ASSERT_EQ(x[0] != null, true);
+    ASSERT_EQ(x[0] != null, true);
+    ASSERT_EQ(x[0] != null, true);
+    ASSERT_EQ(x[0] != null, true);
+
+
+    if (p != nullptr && q != nullptr && r != nullptr && s != nullptr && t != nullptr) {
+        x.deallocate(p, 1);
+        ASSERT_EQ(x[0], 4);
+        ASSERT_EQ(x[8], 4);
+        x.deallocate(q, 1);
+        ASSERT_EQ(x[0], 16);
+        ASSERT_EQ(x[20], 16);
+        x.deallocate(s, 1);
+        ASSERT_EQ(x[36], 4);
+        ASSERT_EQ(x[44], 4);
+        x.deallocate(r, 1);
+        ASSERT_EQ(x[0], 40);
+        ASSERT_EQ(x[44], 40);
+        x.deallocate(t, 1);
         ASSERT_EQ(x[0], 92);
         ASSERT_EQ(x[96], 92);
+    } else {
+        ASSERT_EQ(true, false);
     }
 }*/
 

@@ -148,7 +148,7 @@ private:
                         /* Check beginning and ending sentinal matches */
                         SENTINEL_TYPE end_sentinel = (*this)[counted];
                         cout << "end sent: " << end_sentinel << endl;
-                        cout << "beg index: " << counted << endl;
+                        cout << "end index: " << counted << endl;
                         if (beg_sentinel != end_sentinel){
                             cout << "not matching sentinels" << endl;
                             cout << "beginning sentinel " << beg_sentinel <<endl;
@@ -316,6 +316,8 @@ public:
                 /* Check if block before needs to be combined */
                 /* p cannot be first block */
                 int before_block_sentinel_index = begin_sentinel_index - sizeof(SENTINEL_TYPE);
+                cout << "before_block_sentinel_index " << before_block_sentinel_index << endl;
+                cout << "range " << sizeof(T) + sizeof(SENTINEL_TYPE) << endl; 
                 if(before_block_sentinel_index >= (sizeof(T) + sizeof(SENTINEL_TYPE))) {
 						if((*this)[before_block_sentinel_index] > 0) {
 							cout << "combining with the before block" << endl;
