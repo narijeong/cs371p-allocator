@@ -3,10 +3,10 @@ FILES :=                              \
 #    Allocator.log                     \
 #    html                              \
     TestAllocator.c++                 \
-#    TestAllocator.out
+    TestAllocator.out
 
-#    allocator-tests/njv275-TestAllocator.c++ \
-#    allocator-tests/njv275-TestAllocator.out \
+    allocator-tests/njv275-TestAllocator.c++ \
+    allocator-tests/njv275-TestAllocator.out \
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
