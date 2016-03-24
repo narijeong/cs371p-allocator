@@ -162,3 +162,47 @@ TYPED_TEST(TestAllocator3, test_10) {
             --e;
             x.destroy(e);}
         x.deallocate(b, s);}}
+
+// --------------
+// Test casses
+// --------------
+
+
+TEST(TestAllocator, valid1) {
+	Allocator<int, 105> x;
+	ASSERT_EQ(x.valid(), true);}
+
+TEST(TestAllocator, valid2) {
+	Allocator<double, 80> x;
+	ASSERT_EQ(x.valid(), true);}
+
+TEST(TestAllocator, valid3) {
+	Allocator<int, 2000> x;
+	ASSERT_EQ(x.valid(), true);}
+
+/*
+TEST(TestAllocator, allocate1) {
+	Allocator<int, 105> x;
+	int *position = &x[0]+1;
+	ASSERT_EQ(x.allocate(2), position);}
+
+TEST(TestAllocator, allocate2) {
+	Allocator<double, 80> x;
+	char *position = &x[0]+13;
+	x.allocate(5);
+	ASSERT_EQ(x.allocate(8), position);}
+/*
+TEST(TestAllocator, allocate3) {
+;}
+TEST(TestAllocator, deallocate1) {
+	Allocator<int, 2000> x;
+	ASSERT_EQ(x.valid(), true);}
+	
+TEST(TestAllocator, deallocate2) {
+;}
+TEST(TestAllocator, deallocate3) {
+;}TEST(TestAllocator, ) {
+;}TEST(TestAllocator, valid1) {
+;}TEST(TestAllocator, valid1) {
+;}TEST(TestAllocator, valid1) {
+;}*/
