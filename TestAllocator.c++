@@ -218,9 +218,13 @@ TEST(TestAllocator, allocate2) {
 	Allocator<double, 80> x;
 	char *position = &x[0]+13;
 	x.allocate(5);
-	ASSERT_EQ(x.allocate(8), position);}
+	ASSERT_EQ(x.allocate(8), position);} */
 TEST(TestAllocator, allocate3) {
+    Allocator<int, 100> x;
+    int* first = x.allocate(10);
+    int* second = x.allocate(10);
 ;}
+/*
 TEST(TestAllocator, deallocate1) {
 	Allocator<int, 2000> x;
 	ASSERT_EQ(x.valid(), true);}
