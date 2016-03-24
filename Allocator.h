@@ -75,7 +75,9 @@ public:
         }
 
 private:
+		// ----------------------
 		// FRIEND_TEST for gtest
+		// ----------------------
         FRIEND_TEST(TestAllocator, valid1);
         FRIEND_TEST(TestAllocator, valid2);
         FRIEND_TEST(TestAllocator, valid3);        
@@ -85,6 +87,21 @@ private:
         FRIEND_TEST(TestAllocator, deallocate1);        
         FRIEND_TEST(TestAllocator, deallocate2);        
         FRIEND_TEST(TestAllocator, deallocate3); 
+        FRIEND_TEST(TestAllocatorConstructor, construct_int);
+        FRIEND_TEST(TestAllocatorConstructor, construct_exception);
+        FRIEND_TEST(TestAllocatorConstructor, construct_double);
+        
+        /**
+         * O(1) in space
+         * O(1) in time
+         * operator [] to use for gtest
+         * https://code.google.com/p/googletest/wiki/AdvancedGuide#Private_Class_Members
+         */
+        FRIEND_TEST(TestAllocator2, index);
+        int& operator [] (int i) {
+                return *reinterpret_cast<int*>(&a[i]);
+        }
+        
         
         // ----
         // data
@@ -149,23 +166,7 @@ private:
                 std::cout << "end valid()" << std::endl;
 
         }
-
-        /**
-         * O(1) in space
-         * O(1) in time
-         * <your documentation>
-         * https://code.google.com/p/googletest/wiki/AdvancedGuide#Private_Class_Members
-         */
-        FRIEND_TEST(TestAllocatorConstructor, construct_int);
-        FRIEND_TEST(TestAllocatorConstructor, construct_exception);
-        FRIEND_TEST(TestAllocatorConstructor, construct_double);
-        FRIEND_TEST(TestAllocator2, index);
-        int& operator [] (int i) {
-                return *reinterpret_cast<int*>(&a[i]);
-        }
         
-        
-
 public:
         // ------------
         // constructors

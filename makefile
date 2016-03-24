@@ -1,12 +1,12 @@
 FILES :=                              \
     Allocator.h                       \
-    Allocator.log                     \
-    html                              \
+#    Allocator.log                     \
+#    html                              \
     TestAllocator.c++                 \
-    TestAllocator.out
+#    TestAllocator.out
 
-#    allocator-tests/EID-TestAllocator.c++ \
-#    allocator-tests/EID-TestAllocator.out \
+#    allocator-tests/njv275-TestAllocator.c++ \
+#    allocator-tests/njv275-TestAllocator.out \
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
