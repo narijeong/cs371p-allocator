@@ -1,12 +1,12 @@
 FILES :=                              \
     Allocator.h                       \
-    Allocator.log                     \
-    html                              \
+#    Allocator.log                     \
+#    html                              \
     TestAllocator.c++                 \
-    TestAllocator.out
+#    TestAllocator.out
 
-#    allocator-tests/EID-TestAllocator.c++ \
-#    allocator-tests/EID-TestAllocator.out \
+#    allocator-tests/njv275-TestAllocator.c++ \
+#    allocator-tests/njv275-TestAllocator.out \
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
@@ -33,7 +33,7 @@ TestAllocator: Allocator.h TestAllocator.c++
 	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) TestAllocator.c++ -o TestAllocator $(LDFLAGS)
 
 TestAllocator.tmp: TestAllocator
-	$(VALGRIND) ./TestAllocator                                         >  TestAllocator.tmp 2>&1
+	$(VALGRIND) ./TestAllocator --track-origins=yes                                        >  TestAllocator.tmp 2>&1
 	$(GCOV) -b TestAllocator.c++ | grep -A 5 "File 'TestAllocator.c++'" >> TestAllocator.tmp
 	cat TestAllocator.tmp
 
