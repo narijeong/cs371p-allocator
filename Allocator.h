@@ -107,6 +107,7 @@ private:
                 /* Have to account for N bytes */
                 int counted = 0;
                 bool seen_free_once = false;
+                std::cout << "N " << N; 
 
                 while (counted < N) {
                         /* Add value to get to beginning sentinel */
@@ -166,6 +167,7 @@ public:
 
                 int free_space = N - 2 * sizeof(SENTINEL_TYPE);
                 (*this)[0] = free_space;
+                std::cout << "a[0]" << a[0] << endl;
                 (*this)[N - sizeof(SENTINEL_TYPE)] = free_space;
                 assert(valid());
         }

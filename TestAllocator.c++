@@ -171,38 +171,41 @@ TYPED_TEST(TestAllocator3, test_10) {
 TEST(TestAllocator, valid1) {
 	Allocator<int, 105> x;
 	ASSERT_EQ(x.valid(), true);}
-
+/*
 TEST(TestAllocator, valid2) {
-	Allocator<double, 80> x;
-	ASSERT_EQ(x.valid(), true);}
+	Allocator<double, 160> x;
+	//ASSERT_EQ(x.valid(), true);
+	}
 
 TEST(TestAllocator, valid3) {
 	Allocator<int, 2000> x;
 	ASSERT_EQ(x.valid(), true);}
 
-/*
+*/
+
 TEST(TestAllocator, allocate1) {
 	Allocator<int, 105> x;
 	int *position = &x[0]+1;
 	ASSERT_EQ(x.allocate(2), position);}
-
-TEST(TestAllocator, allocate2) {
-	Allocator<double, 80> x;
-	char *position = &x[0]+13;
-	x.allocate(5);
-	ASSERT_EQ(x.allocate(8), position);}
 /*
+TEST(TestAllocator, allocate2) {
+	Allocator<double, 150> x;
+	void *position = &x[0];
+	x.allocate(2);
+	ASSERT_EQ((void*) x.allocate(5), position);}
 TEST(TestAllocator, allocate3) {
 ;}
+*/
 TEST(TestAllocator, deallocate1) {
-	Allocator<int, 2000> x;
-	ASSERT_EQ(x.valid(), true);}
-	
+	Allocator<int, 100> x;
+	int *p = x.allocate(4);
+	int *p2 = x.allocate(1);
+	int *p3 = x.allocate(2);
+	x.deallocate(p2, 10);
+	ASSERT_EQ(x[12], 10);}
+/*
 TEST(TestAllocator, deallocate2) {
 ;}
 TEST(TestAllocator, deallocate3) {
 ;}TEST(TestAllocator, ) {
-;}TEST(TestAllocator, valid1) {
-;}TEST(TestAllocator, valid1) {
-;}TEST(TestAllocator, valid1) {
 ;}*/
