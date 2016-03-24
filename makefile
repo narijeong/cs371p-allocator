@@ -33,8 +33,9 @@ TestAllocator: Allocator.h TestAllocator.c++
 	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) TestAllocator.c++ -o TestAllocator $(LDFLAGS)
 
 TestAllocator.tmp: TestAllocator
-	$(VALGRIND) ./TestAllocator                                         >  TestAllocator.tmp 2>&1
+	$(VALGRIND) ./TestAllocator --track-origins=yes                                        >  TestAllocator.tmp 2>&1
 	$(GCOV) -b TestAllocator.c++ | grep -A 5 "File 'TestAllocator.c++'" >> TestAllocator.tmp
+	$(GCOV) -b Allocator.h | grep -A 5 "File 'Allocator.h'" >> TestAllocator.tmp
 	cat TestAllocator.tmp
 
 check:
