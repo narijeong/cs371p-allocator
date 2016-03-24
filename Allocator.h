@@ -78,15 +78,15 @@ private:
 		// ----------------------
 		// FRIEND_TEST for gtest
 		// ----------------------
-        FRIEND_TEST(TestAllocator, valid1);
-        FRIEND_TEST(TestAllocator, valid2);
-        FRIEND_TEST(TestAllocator, valid3);        
-        FRIEND_TEST(TestAllocator, allocate1);        
-        FRIEND_TEST(TestAllocator, allocate2);        
-        FRIEND_TEST(TestAllocator, allocate3);        
-        FRIEND_TEST(TestAllocator, deallocate1);        
-        FRIEND_TEST(TestAllocator, deallocate2);        
-        FRIEND_TEST(TestAllocator, deallocate3); 
+        FRIEND_TEST(TestAllocatorValid, valid1);
+        FRIEND_TEST(TestAllocatorValid, valid2);
+        FRIEND_TEST(TestAllocatorValid, valid3);        
+        FRIEND_TEST(TestAllocatorAllocate, allocate1);        
+        FRIEND_TEST(TestAllocatorAllocate, allocate2);        
+        FRIEND_TEST(TestAllocatorAllocate, allocate3);        
+        FRIEND_TEST(TestAllocatorDeallocate, deallocate1);        
+        FRIEND_TEST(TestAllocatorDeallocate, deallocate2);        
+        FRIEND_TEST(TestAllocatorDeallocate, deallocate3); 
         FRIEND_TEST(TestAllocatorConstructor, construct_int);
         FRIEND_TEST(TestAllocatorConstructor, construct_exception);
         FRIEND_TEST(TestAllocatorConstructor, construct_double);

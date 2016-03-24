@@ -162,7 +162,11 @@ TYPED_TEST(TestAllocator3, test_10) {
             --e;
             x.destroy(e);}
         x.deallocate(b, s);}
-    }
+}
+
+// --------------
+// Test casses
+// --------------
 
     TEST(TestAllocatorConstructor, construct_int) {
         const int N = 100;
@@ -191,52 +195,57 @@ TYPED_TEST(TestAllocator3, test_10) {
         ASSERT_EQ(x[N - sizeof(SENTINEL_TYPE)], N - 2 * sizeof(SENTINEL_TYPE));
     }
 
-// --------------
-// Test casses
-// --------------
 
-/*
-TEST(TestAllocator, valid1) {
+TEST(TestAllocatorValid, valid1) {
 	Allocator<int, 105> x;
 	ASSERT_EQ(x.valid(), true);}
 
-TEST(TestAllocator, valid2) {
+TEST(TestAllocatorValid, valid2) {
 	Allocator<double, 160> x;
-	//ASSERT_EQ(x.valid(), true);
+	ASSERT_EQ(x.valid(), true);
 	}
 
-TEST(TestAllocator, valid3) {
+TEST(TestAllocatorValid, valid3) {
 	Allocator<char, 150> x;
 	ASSERT_EQ(x.valid(), true);}
 
-TEST(TestAllocator, allocate1) {
+TEST(TestAllocatorAllocate, allocate1) {
 	Allocator<int, 105> x;
 	int *position = &x[0]+1;
 	ASSERT_EQ(x.allocate(2), position);}
 
-TEST(TestAllocator, allocate2) {
+TEST(TestAllocatorAllocate, allocate2) {
 	Allocator<double, 150> x;
-	void *position = &x[0];
-	x.allocate(2);
-	ASSERT_EQ((void*) x.allocate(5), position);}
+	double* position = x.allocate(2);
+	ASSERT_EQ((void*) x.allocate(5), ((int*) (position+2)+2));}
 
-TEST(TestAllocator, allocate3) {
+TEST(TestAllocatorAllocate, allocate3) {
     Allocator<int, 100> x;
     int* first = x.allocate(10);
     int* second = x.allocate(10);
 ;}
 
-TEST(TestAllocator, deallocate1) {
+TEST(TestAllocatorDeallocate, deallocate1) {
 	Allocator<int, 100> x;
-	int *p = x.allocate(4);
-	int *p2 = x.allocate(1);
-	int *p3 = x.allocate(2);
-	x.deallocate(p2, 10);
-	ASSERT_EQ(x[12], 10);}
-
-TEST(TestAllocator, deallocate2) {
+	int *p = x.allocate(4); //-16..-16, 68..68
+	int *p2 = x.allocate(1); //-16..-16, -4..-4, 56..56
+	int *p3 = x.allocate(2); //-16..-16, -4..-4, -8..-8, 40..40
+	x.deallocate(p2, 1); 
+	ASSERT_EQ(x[0], -16);
+	ASSERT_EQ(x[24], 4);
+	ASSERT_EQ(x[36], -8);
+	ASSERT_EQ(x[52], 40);
+	;}
+/*
+TEST(TestAllocatorDeallocate, deallocate2) {
 ;}
-TEST(TestAllocator, deallocate3) {
-;}TEST(TestAllocator, ) {
-;}*/
+TEST(TestAllocatorDeallocate, deallocate3) {
+    Allocator<int, 100> x;
+    int* p = x.allocate(21);
+    if (p != nullptr) {
+        x.deallocate(p, (size_t) 21);
+        ASSERT_EQ(x[0], 92);
+        ASSERT_EQ(x[96], 92);
+    }
+}*/
 
