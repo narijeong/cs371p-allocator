@@ -161,7 +161,35 @@ TYPED_TEST(TestAllocator3, test_10) {
         while (b != e) {
             --e;
             x.destroy(e);}
-        x.deallocate(b, s);}}
+        x.deallocate(b, s);}
+    }
+
+    TEST(TestAllocatorConstructor, construct_int) {
+        const int N = 100;
+        Allocator<int, N> x;
+        ASSERT_EQ(x[0], N - 2 * sizeof(SENTINEL_TYPE));
+        ASSERT_EQ(x[N - sizeof(SENTINEL_TYPE)], N - 2 * sizeof(SENTINEL_TYPE));
+    }
+    
+    TEST(TestAllocatorConstructor, construct_exception) {
+        try{
+            Allocator<int, sizeof(int)> x;
+            FAIL();
+        }catch(const std::bad_alloc& e){
+            SUCCEED();
+            return;
+        }catch(...){
+            FAIL();
+        }
+        FAIL();
+    }   
+
+    TEST(TestAllocatorConstructor, construct_double) {
+        const int N = 100;
+        Allocator<double, N> x;
+        ASSERT_EQ(x[0], N - 2 * sizeof(SENTINEL_TYPE));
+        ASSERT_EQ(x[N - sizeof(SENTINEL_TYPE)], N - 2 * sizeof(SENTINEL_TYPE));
+    }
 
 // --------------
 // Test casses
@@ -178,7 +206,7 @@ TEST(TestAllocator, valid2) {
 	}
 
 TEST(TestAllocator, valid3) {
-	Allocator<int, 2000> x;
+	Allocator<char, 150> x;
 	ASSERT_EQ(x.valid(), true);}
 
 */
@@ -193,6 +221,7 @@ TEST(TestAllocator, allocate2) {
 	void *position = &x[0];
 	x.allocate(2);
 	ASSERT_EQ((void*) x.allocate(5), position);}
+
 TEST(TestAllocator, allocate3) {
 ;}
 */
@@ -209,3 +238,4 @@ TEST(TestAllocator, deallocate2) {
 TEST(TestAllocator, deallocate3) {
 ;}TEST(TestAllocator, ) {
 ;}*/
+    

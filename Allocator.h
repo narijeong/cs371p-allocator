@@ -105,18 +105,21 @@ private:
          */
         bool valid () const {
                 /* Have to account for N bytes */
+            using namespace std;
+            //cout << N << endl;
                 int counted = 0;
                 bool seen_free_once = false;
                 std::cout << "N " << N; 
 
                 while (counted < N) {
                         /* Add value to get to beginning sentinel */
-                        SENTINEL_TYPE beg_sentinel = this->a[counted];
-
+                        int beg_sentinel = (*this)[counted];
+                        //cout << "beg sent: " << beg_sentinel << endl;
                         /* Checking for consecutive free blocks */
-                        if(this->a[counted] > 0) {
-                                if(seen_free_once)
-                                        return false;
+                        if((*this)[counted] > 0) {
+                                if(seen_free_once){
+                                    return false;
+                                }
                                 seen_free_once = true;
                         }
                         else{
@@ -124,16 +127,23 @@ private:
                         }
 
                         counted += abs_val(beg_sentinel) + sizeof(SENTINEL_TYPE);
-
+                        //cout << "counted: " << counted << endl;
                         /* Check beginning and ending sentinal matches */
-                        SENTINEL_TYPE end_sentinel = this->a[counted];
-                        if (beg_sentinel != end_sentinel)
-                                return false;
+                        SENTINEL_TYPE end_sentinel = (*this)[counted];
+                        //cout << "end sent: " << end_sentinel << endl;
+                        if (beg_sentinel != end_sentinel){
+                            //cout << "not matching sentinels" << endl;
+                            //cout << "beginning sentinel " << beg_sentinel <<endl;
+                            //cout << "ending sentinel " << end_sentinel <<endl;
+                            return false;
+                        }
                         counted += sizeof(SENTINEL_TYPE);
                 }
 
                 if(counted == N)
                         return true;
+
+                //cout << "unaccounted for" <<endl;
                 return false;
         }
 
@@ -143,6 +153,9 @@ private:
          * <your documentation>
          * https://code.google.com/p/googletest/wiki/AdvancedGuide#Private_Class_Members
          */
+        FRIEND_TEST(TestAllocatorConstructor, construct_int);
+        FRIEND_TEST(TestAllocatorConstructor, construct_exception);
+        FRIEND_TEST(TestAllocatorConstructor, construct_double);
         FRIEND_TEST(TestAllocator2, index);
         int& operator [] (int i) {
                 return *reinterpret_cast<int*>(&a[i]);
@@ -162,12 +175,15 @@ public:
          * Otherwise, initializes memory by adding beginning and ending sentinels
          */
         Allocator () {
+            using namespace std;
                 if(N < sizeof(T) + 2 * sizeof(SENTINEL_TYPE))
                     throw std::bad_alloc();
 
                 int free_space = N - 2 * sizeof(SENTINEL_TYPE);
+                //cout << "free space " << free_space << endl;
                 (*this)[0] = free_space;
-                std::cout << "a[0]" << a[0] << endl;
+
+                //cout << "a[0] = " << (*this)[0] << endl;
                 (*this)[N - sizeof(SENTINEL_TYPE)] = free_space;
                 assert(valid());
         }
@@ -190,38 +206,40 @@ public:
          * throw a bad_alloc exception, if n <= 0 or no possible fit
          */
         pointer allocate(size_type n) {
+            using namespace std;
+            //cout << "ALLOCATE" << endl;
                 if(n <= 0){
                     throw std::bad_alloc();
                 }
 
                 n = n * sizeof(T);
-                SENTINEL_TYPE begin = this->a[0];
+                SENTINEL_TYPE begin = (*this)[0];
                 int position = 0;
                 while(position < N && begin < n + 2 * sizeof(SENTINEL_TYPE)) {
                         position += (begin + 2 * sizeof(SENTINEL_TYPE));
-                        begin = a[position];
+                        begin = (*this)[position];
                 }
 
                 if (position >= N)
                         throw std::bad_alloc();
 
                 // allocating the whole block
-                if (a[position] < n + 2 * sizeof(SENTINEL_TYPE) + 1) {
-                        int sentinel = a[position];
-                        a[position] *= -1;
-                        a[position + sentinel] *= -1;
+                if ((*this)[position] < n + 2 * sizeof(SENTINEL_TYPE) + 1) {
+                        int sentinel = (*this)[position];
+                        (*this)[position] *= -1;
+                        (*this)[position + sentinel] *= -1;
                         assert(valid());
-                        return (pointer) &a[position + sizeof(SENTINEL_TYPE)];
+                        return (pointer) &(*this)[position + sizeof(SENTINEL_TYPE)];
                 }
                 // spliting the block into two blocks
-                int whole_block = a[position];
+                int whole_block = (*this)[position];
                 int new_block_size = whole_block - 2 * sizeof(SENTINEL_TYPE) - n;
-                a[position] = -1 * n;
-                a[position + sizeof(SENTINEL_TYPE) + n] = -1 * n;
-                a[position + 2 * sizeof(SENTINEL_TYPE) + n] = new_block_size;
-                a[position + 3 * sizeof(SENTINEL_TYPE) + n + new_block_size] = new_block_size;
+                (*this)[position] = -1 * n;
+                (*this)[position + sizeof(SENTINEL_TYPE) + n] = -1 * n;
+                (*this)[position + 2 * sizeof(SENTINEL_TYPE) + n] = new_block_size;
+                (*this)[position + 3 * sizeof(SENTINEL_TYPE) + n + new_block_size] = new_block_size;
                 assert(valid());
-                return (pointer) &a[position + sizeof(SENTINEL_TYPE)];
+                return (pointer) &(*this)[position + sizeof(SENTINEL_TYPE)];
         }
 
         // ---------
@@ -248,42 +266,44 @@ public:
          * throw an invalid_argument exception, if p is invalid
          */
         void deallocate(pointer p, size_type n) {
-
+                using namespace std;
+                //cout << "DEALLOCATE" << endl;
+                assert(valid());
                 /* Make sure p is valid */
-                if((void*)p < &a[4] || (void*)p > &a[N - 4])
+                if((void*)p < &(*this)[4] || (void*)p > &(*this)[N - 4])
                         throw std::invalid_argument("Pointer is out of bounds");
 
                 int index = (char*)p - &a[0];
-
+                //cout << "given index " << index << endl;
                 /* Assume this block is beginning and end */
                 int begin_sentinel_index = index - 4;
-                int data = a[begin_sentinel_index] * -1;
+                int data = (*this)[begin_sentinel_index] * -1;
                 int end_sentinel_index = index + data;
-
+                //cout << "Before combine" <<  begin_sentinel_index << endl;
                 /* Check if block before needs to be combined */
                 /* p cannot be first block */
                 if(begin_sentinel_index >= 0) {
                         int before_block_sentinel_index = begin_sentinel_index - sizeof(SENTINEL_TYPE);
 
-                        if (a[before_block_sentinel_index] > 0) {
-                                data += a[before_block_sentinel_index] + 2 * sizeof(SENTINEL_TYPE);
-                                begin_sentinel_index = before_block_sentinel_index - a[before_block_sentinel_index] - sizeof(SENTINEL_TYPE);
+                        if ((*this)[before_block_sentinel_index] > 0) {
+                                data += (*this)[before_block_sentinel_index] + 2 * sizeof(SENTINEL_TYPE);
+                                begin_sentinel_index = before_block_sentinel_index - (*this)[before_block_sentinel_index] - sizeof(SENTINEL_TYPE);
                         }
                 }
                 /* Check if block after needs to be combined */
                 /* p cannot be last block */
                 if(end_sentinel_index <= N - sizeof(SENTINEL_TYPE)) {
                         int after_block_sentinel = end_sentinel_index + sizeof(SENTINEL_TYPE);
-                        if(a[after_block_sentinel] > 0) {
-                                data += a[after_block_sentinel] + 2 * sizeof(SENTINEL_TYPE);
-                                end_sentinel_index = after_block_sentinel + a[after_block_sentinel] + sizeof(SENTINEL_TYPE);
+                        if((*this)[after_block_sentinel] > 0) {
+                                data += (*this)[after_block_sentinel] + 2 * sizeof(SENTINEL_TYPE);
+                                end_sentinel_index = after_block_sentinel + (*this)[after_block_sentinel] + sizeof(SENTINEL_TYPE);
 
                         }
                 }
 
                 /* Combine */
-                a[begin_sentinel_index] = data;
-                a[end_sentinel_index] = data;
+                (*this)[begin_sentinel_index] = data;
+                (*this)[end_sentinel_index] = data;
                 assert(valid());
         }
 
