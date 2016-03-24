@@ -205,7 +205,7 @@ TEST(TestAllocator, valid2) {
 	ASSERT_EQ(x.valid(), true);}
 
 TEST(TestAllocator, valid3) {
-	Allocator<int, 2000> x;
+	Allocator<char, 150> x;
 	ASSERT_EQ(x.valid(), true);}
 
 /*
@@ -219,7 +219,6 @@ TEST(TestAllocator, allocate2) {
 	char *position = &x[0]+13;
 	x.allocate(5);
 	ASSERT_EQ(x.allocate(8), position);}
-/*
 TEST(TestAllocator, allocate3) {
 ;}
 TEST(TestAllocator, deallocate1) {
