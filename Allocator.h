@@ -99,7 +99,7 @@ private:
 
                 while (counted < N) {
                         /* Add value to get to beginning sentinel */
-                        SENTINEL_TYPE beg_sentinel = this->a[counted];
+                        SENTINEL_TYPE beg_sentinel = a[counted];
 
                         /* Checking for consecutive free blocks */
                         if(this->a[counted] > 0) {
@@ -114,7 +114,7 @@ private:
                         counted += abs_val(beg_sentinel) + sizeof(SENTINEL_TYPE);
 
                         /* Check beginning and ending sentinal matches */
-                        SENTINEL_TYPE end_sentinel = this->a[counted];
+                        SENTINEL_TYPE end_sentinel = a[counted];
                         if (beg_sentinel != end_sentinel)
                                 return false;
                         counted += sizeof(SENTINEL_TYPE);
@@ -131,6 +131,9 @@ private:
          * <your documentation>
          * https://code.google.com/p/googletest/wiki/AdvancedGuide#Private_Class_Members
          */
+        FRIEND_TEST(TestAllocatorConstructor, construct_int);
+        FRIEND_TEST(TestAllocatorConstructor, construct_exception);
+        FRIEND_TEST(TestAllocatorConstructor, construct_double);
         FRIEND_TEST(TestAllocator2, index);
         int& operator [] (int i) {
                 return *reinterpret_cast<int*>(&a[i]);

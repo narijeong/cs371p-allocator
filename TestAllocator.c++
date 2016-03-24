@@ -161,4 +161,32 @@ TYPED_TEST(TestAllocator3, test_10) {
         while (b != e) {
             --e;
             x.destroy(e);}
-        x.deallocate(b, s);}}
+        x.deallocate(b, s);}
+    }
+
+    TEST(TestAllocatorConstructor, construct_int) {
+        const int N = 100;
+        Allocator<int, N> x;
+        ASSERT_EQ(x[0], N - 2 * sizeof(SENTINEL_TYPE));
+        ASSERT_EQ(x[N - sizeof(SENTINEL_TYPE)], N - 2 * sizeof(SENTINEL_TYPE));
+    }
+    
+    TEST(TestAllocatorConstructor, construct_exception) {
+        try{
+            Allocator<int, sizeof(int)> x;
+            FAIL();
+        }catch(const std::bad_alloc& e){
+            SUCCEED();
+            return;
+        }catch(...){
+            FAIL();
+        }
+        FAIL();
+    }   
+
+    TEST(TestAllocatorConstructor, construct_double) {
+        const int N = 100;
+        Allocator<double, N> x;
+        ASSERT_EQ(x[0], N - 2 * sizeof(SENTINEL_TYPE));
+        ASSERT_EQ(x[N - sizeof(SENTINEL_TYPE)], N - 2 * sizeof(SENTINEL_TYPE));
+    }
