@@ -195,11 +195,11 @@ TYPED_TEST(TestAllocator3, test_10) {
 // Test casses
 // --------------
 
-
+/*
 TEST(TestAllocator, valid1) {
 	Allocator<int, 105> x;
 	ASSERT_EQ(x.valid(), true);}
-/*
+
 TEST(TestAllocator, valid2) {
 	Allocator<double, 160> x;
 	//ASSERT_EQ(x.valid(), true);
@@ -208,8 +208,6 @@ TEST(TestAllocator, valid2) {
 TEST(TestAllocator, valid3) {
 	Allocator<char, 150> x;
 	ASSERT_EQ(x.valid(), true);}
-
-*/
 
 TEST(TestAllocator, allocate1) {
 	Allocator<int, 105> x;
@@ -228,7 +226,6 @@ TEST(TestAllocator, allocate3) {
     int* second = x.allocate(10);
 ;}
 
-
 TEST(TestAllocator, deallocate1) {
 	Allocator<int, 100> x;
 	int *p = x.allocate(4);
@@ -236,10 +233,10 @@ TEST(TestAllocator, deallocate1) {
 	int *p3 = x.allocate(2);
 	x.deallocate(p2, 10);
 	ASSERT_EQ(x[12], 10);}
-/*
+
 TEST(TestAllocator, deallocate2) {
 ;}
 TEST(TestAllocator, deallocate3) {
 ;}TEST(TestAllocator, ) {
 ;}*/
-    
+
