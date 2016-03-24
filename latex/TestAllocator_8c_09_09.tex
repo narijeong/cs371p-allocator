@@ -1,0 +1,282 @@
+\hypertarget{TestAllocator_8c_09_09}{\section{Test\-Allocator.\-c++ File Reference}
+\label{TestAllocator_8c_09_09}\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}}
+}
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include $<$memory$>$}\\*
+{\ttfamily \#include \char`\"{}gtest/gtest.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Allocator.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structTestAllocator1}{Test\-Allocator1$<$ A $>$}
+\item 
+struct \hyperlink{structTestAllocator3}{Test\-Allocator3$<$ A $>$}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef testing\-::\-Types\\*
+$<$ std\-::allocator$<$ int $>$\\*
+, std\-::allocator$<$ double $>$\\*
+, \hyperlink{classAllocator}{Allocator}$<$ int, 100 $>$\\*
+, \hyperlink{classAllocator}{Allocator}$<$ double, 100 $>$ $>$ \hyperlink{TestAllocator_8c_09_09_a13869bd8140d5f03f67a74c18b4a9483}{my\-\_\-types\-\_\-1}
+\item 
+typedef testing\-::\-Types\\*
+$<$ \hyperlink{classAllocator}{Allocator}$<$ int, 100 $>$\\*
+, \hyperlink{classAllocator}{Allocator}$<$ double, 100 $>$ $>$ \hyperlink{TestAllocator_8c_09_09_ae8c7ebc24b7c1269b8c59135bef34e20}{my\-\_\-types\-\_\-2}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{TestAllocator_8c_09_09_ac12bb00f418021d252bd2c25ece50c93}{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E} (\hyperlink{structTestAllocator1}{Test\-Allocator1}, \hyperlink{TestAllocator_8c_09_09_a13869bd8140d5f03f67a74c18b4a9483}{my\-\_\-types\-\_\-1})
+\item 
+\hyperlink{TestAllocator_8c_09_09_ae7f896b998cca25e9dd5fb6e0ee4eebc}{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T} (\hyperlink{structTestAllocator1}{Test\-Allocator1}, test\-\_\-1)
+\item 
+\hyperlink{TestAllocator_8c_09_09_aa2803b82f1082b0ae849ad3075c944ad}{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T} (\hyperlink{structTestAllocator1}{Test\-Allocator1}, test\-\_\-10)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a204cc10f9bc1ca26b04bad4656b87671}{T\-E\-S\-T} (Test\-Allocator2, const\-\_\-index)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a4da97a8aeec81f53d36b25e8483d51ec}{T\-E\-S\-T} (Test\-Allocator2, index)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a2834e7174b70f38555c1dc1808e6ce3b}{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E} (\hyperlink{structTestAllocator3}{Test\-Allocator3}, \hyperlink{TestAllocator_8c_09_09_ae8c7ebc24b7c1269b8c59135bef34e20}{my\-\_\-types\-\_\-2})
+\item 
+\hyperlink{TestAllocator_8c_09_09_a0a98bdf8c103a8a929e22e100a185ea2}{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T} (\hyperlink{structTestAllocator3}{Test\-Allocator3}, test\-\_\-1)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a8160ba0a226c52d48c08bf80c72fde03}{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T} (\hyperlink{structTestAllocator3}{Test\-Allocator3}, test\-\_\-10)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a7e0f24656a410bacb1041e5c2dd07801}{T\-E\-S\-T} (Test\-Allocator\-Constructor, construct\-\_\-int)
+\item 
+\hyperlink{TestAllocator_8c_09_09_af0ede47de50329774cb3d71b3e640bb1}{T\-E\-S\-T} (Test\-Allocator\-Constructor, construct\-\_\-exception)
+\item 
+\hyperlink{TestAllocator_8c_09_09_aa9ecbe57010651a59974079b34ec6ac7}{T\-E\-S\-T} (Test\-Allocator\-Constructor, construct\-\_\-double)
+\item 
+\hyperlink{TestAllocator_8c_09_09_aa030c002a0a4ec39efd41ec32a8a5f7c}{T\-E\-S\-T} (Test\-Allocator\-Valid, valid1)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a1eb51325a4526d8fc5dfea45f8f41c06}{T\-E\-S\-T} (Test\-Allocator\-Valid, valid2)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a2b4a5601315a39925c4b11733c76d13a}{T\-E\-S\-T} (Test\-Allocator\-Valid, valid3)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a88fa712af9be1fe8601173aaad0d17a9}{T\-E\-S\-T} (Test\-Allocator\-Allocate, allocate1)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a03ba40dc8d564df913b7819e88cbe6ab}{T\-E\-S\-T} (Test\-Allocator\-Allocate, allocate2)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a9f9aefe29328486d62b3bec1b5c2bf16}{T\-E\-S\-T} (Test\-Allocator\-Allocate, allocate3)
+\item 
+\hyperlink{TestAllocator_8c_09_09_ab8b6a4d933c13070c1c57f3a907997f2}{T\-E\-S\-T} (Test\-Allocator\-Allocate, allocate\-\_\-toomuch)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a7e55640d98d2c17ec4e4c03ce3b06828}{T\-E\-S\-T} (Test\-Allocator\-Allocate, allocate\-\_\-negative)
+\item 
+\hyperlink{TestAllocator_8c_09_09_a77b90ff75b91cecaba99f039f838b047}{T\-E\-S\-T} (Test\-Allocator\-Allocate, allocate\-\_\-zero)
+\item 
+\hyperlink{TestAllocator_8c_09_09_ab255499288b1ba1445e8762228aedbe5}{T\-E\-S\-T} (Test\-Allocator\-Deallocate, deallocate1)
+\item 
+\hyperlink{TestAllocator_8c_09_09_ac12a713e609cda2a46b4d78b858ee907}{T\-E\-S\-T} (Test\-Allocator\-Deallocate, deallocate2)
+\item 
+\hyperlink{TestAllocator_8c_09_09_afc15ba460c09b299d4a9eab06f5b1602}{T\-E\-S\-T} (Test\-Allocator\-Deallocate, deallocate3)
+\item 
+\hyperlink{TestAllocator_8c_09_09_ad21682e7c75eb2e95b5a7443db79df71}{T\-E\-S\-T} (Test\-Allocator\-Deallocate, exception)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{TestAllocator_8c_09_09_a13869bd8140d5f03f67a74c18b4a9483}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!my\-\_\-types\-\_\-1@{my\-\_\-types\-\_\-1}}
+\index{my\-\_\-types\-\_\-1@{my\-\_\-types\-\_\-1}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{my\-\_\-types\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}typedef testing\-::\-Types$<$ std\-::allocator$<$int$>$, std\-::allocator$<$double$>$, {\bf Allocator}$<$int, 100$>$, {\bf Allocator}$<$double, 100$>$ $>$ {\bf my\-\_\-types\-\_\-1}}}\label{TestAllocator_8c_09_09_a13869bd8140d5f03f67a74c18b4a9483}
+\hypertarget{TestAllocator_8c_09_09_ae8c7ebc24b7c1269b8c59135bef34e20}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!my\-\_\-types\-\_\-2@{my\-\_\-types\-\_\-2}}
+\index{my\-\_\-types\-\_\-2@{my\-\_\-types\-\_\-2}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{my\-\_\-types\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}typedef testing\-::\-Types$<$ {\bf Allocator}$<$int, 100$>$, {\bf Allocator}$<$double, 100$>$ $>$ {\bf my\-\_\-types\-\_\-2}}}\label{TestAllocator_8c_09_09_ae8c7ebc24b7c1269b8c59135bef34e20}
+
+
+\subsection{Function Documentation}
+\hypertarget{TestAllocator_8c_09_09_a204cc10f9bc1ca26b04bad4656b87671}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator2}]{, }
+\item[{const\-\_\-index}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a204cc10f9bc1ca26b04bad4656b87671}
+\hypertarget{TestAllocator_8c_09_09_a4da97a8aeec81f53d36b25e8483d51ec}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator2}]{, }
+\item[{index}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a4da97a8aeec81f53d36b25e8483d51ec}
+\hypertarget{TestAllocator_8c_09_09_a7e0f24656a410bacb1041e5c2dd07801}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Constructor}]{, }
+\item[{construct\-\_\-int}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a7e0f24656a410bacb1041e5c2dd07801}
+\hypertarget{TestAllocator_8c_09_09_af0ede47de50329774cb3d71b3e640bb1}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Constructor}]{, }
+\item[{construct\-\_\-exception}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_af0ede47de50329774cb3d71b3e640bb1}
+\hypertarget{TestAllocator_8c_09_09_aa9ecbe57010651a59974079b34ec6ac7}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Constructor}]{, }
+\item[{construct\-\_\-double}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_aa9ecbe57010651a59974079b34ec6ac7}
+\hypertarget{TestAllocator_8c_09_09_aa030c002a0a4ec39efd41ec32a8a5f7c}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Valid}]{, }
+\item[{valid1}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_aa030c002a0a4ec39efd41ec32a8a5f7c}
+\hypertarget{TestAllocator_8c_09_09_a1eb51325a4526d8fc5dfea45f8f41c06}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Valid}]{, }
+\item[{valid2}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a1eb51325a4526d8fc5dfea45f8f41c06}
+\hypertarget{TestAllocator_8c_09_09_a2b4a5601315a39925c4b11733c76d13a}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Valid}]{, }
+\item[{valid3}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a2b4a5601315a39925c4b11733c76d13a}
+\hypertarget{TestAllocator_8c_09_09_a88fa712af9be1fe8601173aaad0d17a9}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Allocate}]{, }
+\item[{allocate1}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a88fa712af9be1fe8601173aaad0d17a9}
+\hypertarget{TestAllocator_8c_09_09_a03ba40dc8d564df913b7819e88cbe6ab}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Allocate}]{, }
+\item[{allocate2}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a03ba40dc8d564df913b7819e88cbe6ab}
+\hypertarget{TestAllocator_8c_09_09_a9f9aefe29328486d62b3bec1b5c2bf16}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Allocate}]{, }
+\item[{allocate3}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a9f9aefe29328486d62b3bec1b5c2bf16}
+\hypertarget{TestAllocator_8c_09_09_ab8b6a4d933c13070c1c57f3a907997f2}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Allocate}]{, }
+\item[{allocate\-\_\-toomuch}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_ab8b6a4d933c13070c1c57f3a907997f2}
+\hypertarget{TestAllocator_8c_09_09_a7e55640d98d2c17ec4e4c03ce3b06828}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Allocate}]{, }
+\item[{allocate\-\_\-negative}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a7e55640d98d2c17ec4e4c03ce3b06828}
+\hypertarget{TestAllocator_8c_09_09_a77b90ff75b91cecaba99f039f838b047}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Allocate}]{, }
+\item[{allocate\-\_\-zero}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a77b90ff75b91cecaba99f039f838b047}
+\hypertarget{TestAllocator_8c_09_09_ab255499288b1ba1445e8762228aedbe5}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Deallocate}]{, }
+\item[{deallocate1}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_ab255499288b1ba1445e8762228aedbe5}
+\hypertarget{TestAllocator_8c_09_09_ac12a713e609cda2a46b4d78b858ee907}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Deallocate}]{, }
+\item[{deallocate2}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_ac12a713e609cda2a46b4d78b858ee907}
+\hypertarget{TestAllocator_8c_09_09_afc15ba460c09b299d4a9eab06f5b1602}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Deallocate}]{, }
+\item[{deallocate3}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_afc15ba460c09b299d4a9eab06f5b1602}
+\hypertarget{TestAllocator_8c_09_09_ad21682e7c75eb2e95b5a7443db79df71}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-E\-S\-T@{T\-E\-S\-T}}
+\index{T\-E\-S\-T@{T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Deallocate}]{, }
+\item[{exception}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_ad21682e7c75eb2e95b5a7443db79df71}
+\hypertarget{TestAllocator_8c_09_09_ae7f896b998cca25e9dd5fb6e0ee4eebc}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}}
+\index{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{{\bf Test\-Allocator1}}]{, }
+\item[{test\-\_\-1}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_ae7f896b998cca25e9dd5fb6e0ee4eebc}
+\hypertarget{TestAllocator_8c_09_09_aa2803b82f1082b0ae849ad3075c944ad}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}}
+\index{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{{\bf Test\-Allocator1}}]{, }
+\item[{test\-\_\-10}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_aa2803b82f1082b0ae849ad3075c944ad}
+\hypertarget{TestAllocator_8c_09_09_a0a98bdf8c103a8a929e22e100a185ea2}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}}
+\index{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{{\bf Test\-Allocator3}}]{, }
+\item[{test\-\_\-1}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a0a98bdf8c103a8a929e22e100a185ea2}
+\hypertarget{TestAllocator_8c_09_09_a8160ba0a226c52d48c08bf80c72fde03}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}}
+\index{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{{\bf Test\-Allocator3}}]{, }
+\item[{test\-\_\-10}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a8160ba0a226c52d48c08bf80c72fde03}
+\hypertarget{TestAllocator_8c_09_09_ac12bb00f418021d252bd2c25ece50c93}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E}}
+\index{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf Test\-Allocator1}}]{, }
+\item[{{\bf my\-\_\-types\-\_\-1}}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_ac12bb00f418021d252bd2c25ece50c93}
+\hypertarget{TestAllocator_8c_09_09_a2834e7174b70f38555c1dc1808e6ce3b}{\index{Test\-Allocator.\-c++@{Test\-Allocator.\-c++}!T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E}}
+\index{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E@{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E}!TestAllocator.c++@{Test\-Allocator.\-c++}}
+\subsubsection[{T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}T\-Y\-P\-E\-D\-\_\-\-T\-E\-S\-T\-\_\-\-C\-A\-S\-E (
+\begin{DoxyParamCaption}
+\item[{{\bf Test\-Allocator3}}]{, }
+\item[{{\bf my\-\_\-types\-\_\-2}}]{}
+\end{DoxyParamCaption}
+)}}\label{TestAllocator_8c_09_09_a2834e7174b70f38555c1dc1808e6ce3b}

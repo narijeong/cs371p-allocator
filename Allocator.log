@@ -1,0 +1,225 @@
+commit 69b10cac2334a4dff1b7694bfbf5eb630e359536
+Merge: 60adb17 a392c3c
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Thu Mar 24 16:36:30 2016 -0500
+
+    Merged dev and master branches
+
+commit a392c3c89e5094f8f8d2129c48aed49c054f2cf7
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Thu Mar 24 16:32:47 2016 -0500
+
+    Added test cases and debugged allocating negative amount of space
+
+commit 881d66c81e43f57e3f95fa532c00610ddec99602
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Thu Mar 24 16:15:19 2016 -0500
+
+    Cleaned up code, got rid of print statements, and cleaned up formatting
+
+commit a2b4aa11b0123e5686c842c2e8395f02872e403d
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Thu Mar 24 15:41:22 2016 -0500
+
+    added deallocate3 test case
+
+commit b88fda3d7e0f86aa974c698494e56454af87de9c
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Thu Mar 24 15:18:59 2016 -0500
+
+    test case with Allocator with type char passed. We need HUGE clean up!
+
+commit e8b1ad661f6b180855e8ec6a421194d9048ddd35
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Thu Mar 24 14:43:32 2016 -0500
+
+    found a bug with Allocator with char
+
+commit 8863596312bdc52e2472b5d904771923119e5808
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Thu Mar 24 08:43:51 2016 -0500
+
+    wrote more test cases. need to write more 2 more deallocate and more complex. maybe?
+
+commit b051286dcad8a5a92cce1c4a35d1587e8a79068e
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Thu Mar 24 08:05:34 2016 -0500
+
+    checking Travis
+
+commit 34cf7f4a292bef3c11f316de64ffe389c1772a08
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Thu Mar 24 07:38:00 2016 -0500
+
+    commenting out our test cases to se if Trvais CI passes.
+
+commit 94ef56606a4cef9d1935f19ce18bfebf557c00ac
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Thu Mar 24 07:34:15 2016 -0500
+
+    debugged deallocated() and passed all tests given
+
+commit 38d299cbc7adbfef4200f43f95d61a3723943543
+Merge: 37b0395 b99a90f
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Wed Mar 23 23:59:05 2016 -0500
+
+    Looks like it may work?git commit
+
+commit 37b039537947d4f3bfb7eadc21ec9a5b05189519
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Wed Mar 23 23:54:04 2016 -0500
+
+    fixed, i hope
+
+commit b99a90ff6c29330c88f0b6a4e41425a2acf9ce47
+Merge: 384dfb9 a7ac323
+Author: Nari Jeong <narijeong@icloud.com>
+Date:   Wed Mar 23 22:00:28 2016 -0500
+
+    merge
+
+commit a7ac3231294ecfad332cd9745486048d6867bf03
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Wed Mar 23 21:57:56 2016 -0500
+
+    FINALLY FIXED, i hope
+
+commit 384dfb9b013b3a8cdcd7b57579b1dcae501ad751
+Author: Nari Jeong <narijeong@icloud.com>
+Date:   Wed Mar 23 21:56:13 2016 -0500
+
+    add test cases
+
+commit 0562fbf90412df8f110441e1006198e443557ca5
+Merge: 368f37e 8a53407
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Wed Mar 23 20:55:33 2016 -0500
+
+    merged tests
+
+commit 8a53407af202437bdc6785e4abaec2d4e1e7d5ff
+Merge: 752a80b dfa5a61
+Author: Nari Jeong <narijeong@icloud.com>
+Date:   Wed Mar 23 20:53:46 2016 -0500
+
+    merge
+
+commit 368f37eaf7c8fb7319f08b4309e39ac81435a693
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Wed Mar 23 20:51:43 2016 -0500
+
+    Added allocator constructor test cases
+
+commit 752a80b3c234323972d76ab3326ab0e090ffda8c
+Author: Nari Jeong <narijeong@icloud.com>
+Date:   Wed Mar 23 20:51:39 2016 -0500
+
+    add unit tests
+
+commit dfa5a61c783f8da0196df4f3eee2b656ff4baa67
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Wed Mar 23 19:46:24 2016 -0500
+
+    Cleaned up some more code
+
+commit eaeb498027751da8085b41cc859501bff536ebfa
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Wed Mar 23 19:43:03 2016 -0500
+
+    No need to update makefile to cover .h files since they are already covered by #include. Added documentation to Allocator.h and cleaned up code
+
+commit a193e6fdbd27bfd01e79e4ae369c77faf3a46484
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Wed Mar 23 19:24:11 2016 -0500
+
+    Redid deallocate, fixed testcases in TestAllocator, and currently trying to modify maekfile to run gcov on allocator.h
+
+commit f07cec9c6e658e7ad704d5e3c703791dcca688a1
+Merge: fcb4936 2bf2fa0
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Tue Mar 22 00:54:03 2016 -0500
+
+    Fixed merge conflict
+
+commit fcb4936d871be82f32fecada8c2312407ce44943
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Tue Mar 22 00:51:05 2016 -0500
+
+    Fixed Allocator.h
+
+commit 2bf2fa0b585ae997fa81d54994056c99036ccfe8
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Mon Mar 21 20:42:48 2016 -0500
+
+    fixed the bug in valid getting wrong end sentinel
+
+commit 8199a75bb660752e6cf0469302393ea4fa8b2824
+Author: Nishil Shah <nishil94@utexas.edu>
+Date:   Mon Mar 21 18:47:01 2016 -0500
+
+    Added deallocate, now debugging
+
+commit 8b2e99ffde8fb8a1edf4a56357d73569808e2697
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Sun Mar 20 19:15:58 2016 -0500
+
+    wrote allocate()
+
+commit 1f16140a927edac44a3b862ee850a9df0a52b52b
+Merge: 6f64ae2 4d9114c
+Author: Nishil Shah <nishil94@gmail.com>
+Date:   Sun Mar 20 17:43:00 2016 -0500
+
+    Merge branch 'dev' of https://github.com/narijeong/cs371p-allocator into dev
+
+commit 60adb178c30938b745c0c51088d04cc8d634a513
+Author: Nishil Shah <nishil94@gmail.com>
+Date:   Sun Mar 20 17:38:27 2016 -0500
+
+    Revert "Wrote Allocator() and valid(), not tested yet"
+    
+    This reverts commit 6f64ae26119ea570c24383770a9b77cae16c9f76.
+
+commit 6f64ae26119ea570c24383770a9b77cae16c9f76
+Author: Nishil Shah <nishil94@gmail.com>
+Date:   Sun Mar 20 17:28:48 2016 -0500
+
+    Wrote Allocator() and valid(), not tested yet
+
+commit 4d9114cef3532af611f758729a236de6cc75ed88
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Sun Mar 20 15:54:02 2016 -0500
+
+    change name of yml file .yml -> .travis.yml
+
+commit fa419a7455c62675fa3407305797fcab143632a7
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Sun Mar 20 15:52:23 2016 -0500
+
+    add gitignore and travis yml file
+
+commit 81a1e9c358c1460065dc2fb4ddbba8966b9d97d9
+Merge: 2e83ef0 b5bd4ab
+Author: Nishil Shah <nishil94@gmail.com>
+Date:   Sun Mar 20 15:42:03 2016 -0500
+
+    Merge branch 'master' of https://github.com/narijeong/cs371p-allocator
+
+commit 2e83ef0ab1529981e2b0c82b2a64ae0feb877608
+Author: Nishil Shah <nishil94@gmail.com>
+Date:   Sun Mar 20 15:38:15 2016 -0500
+
+    Updated Readme with names, EIDs, and project competion time
+
+commit b5bd4ab50b689fa689de18d9c14d745a20caafe4
+Author: Nari Jeong <narijeong@utexas.edu>
+Date:   Sun Mar 20 15:35:20 2016 -0500
+
+    add base files
+
+commit acc8b81537b96112fbc5a415484b240faf6ca328
+Author: nari <narijeong@icloud.com>
+Date:   Sun Mar 20 15:23:51 2016 -0500
+
+    Initial commit

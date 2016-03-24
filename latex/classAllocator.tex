@@ -1,0 +1,310 @@
+\hypertarget{classAllocator}{\section{Allocator$<$ T, N $>$ Class Template Reference}
+\label{classAllocator}\index{Allocator$<$ T, N $>$@{Allocator$<$ T, N $>$}}
+}
+
+
+{\ttfamily \#include $<$Allocator.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef T \hyperlink{classAllocator_ad5c51a128db2150e67259f697ef457b9}{value\-\_\-type}
+\item 
+typedef std\-::size\-\_\-t \hyperlink{classAllocator_aec4c70d3e80d2b7d11bbb8bd8a62f016}{size\-\_\-type}
+\item 
+typedef std\-::ptrdiff\-\_\-t \hyperlink{classAllocator_a6b650764260187e63d5098f5f38046c2}{difference\-\_\-type}
+\item 
+typedef \hyperlink{classAllocator_ad5c51a128db2150e67259f697ef457b9}{value\-\_\-type} $\ast$ \hyperlink{classAllocator_a7df4693123ad6d168217e3853cd15495}{pointer}
+\item 
+typedef const \hyperlink{classAllocator_ad5c51a128db2150e67259f697ef457b9}{value\-\_\-type} $\ast$ \hyperlink{classAllocator_a5815a9c01f756005eb19d0ae5aded3be}{const\-\_\-pointer}
+\item 
+typedef \hyperlink{classAllocator_ad5c51a128db2150e67259f697ef457b9}{value\-\_\-type} \& \hyperlink{classAllocator_adf0658602f352de03fa2d2c4f23903e9}{reference}
+\item 
+typedef const \hyperlink{classAllocator_ad5c51a128db2150e67259f697ef457b9}{value\-\_\-type} \& \hyperlink{classAllocator_aff863afcf191fb225997ae2d51314bf5}{const\-\_\-reference}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAllocator_a4e2bf5fbf94e2206bb72b71ad4b7ffb3}{Allocator} ()
+\item 
+\hyperlink{classAllocator_a7df4693123ad6d168217e3853cd15495}{pointer} \hyperlink{classAllocator_a8a19b7b675f5434c28c68fb15de86f36}{allocate} (\hyperlink{classAllocator_aec4c70d3e80d2b7d11bbb8bd8a62f016}{size\-\_\-type} n)
+\item 
+void \hyperlink{classAllocator_a6e6a26ece248be1eb76ed691c085cd65}{construct} (\hyperlink{classAllocator_a7df4693123ad6d168217e3853cd15495}{pointer} p, \hyperlink{classAllocator_aff863afcf191fb225997ae2d51314bf5}{const\-\_\-reference} v)
+\item 
+void \hyperlink{classAllocator_a731b4679156aeb43318224fc8e41e4ce}{deallocate} (\hyperlink{classAllocator_a7df4693123ad6d168217e3853cd15495}{pointer} p, \hyperlink{classAllocator_aec4c70d3e80d2b7d11bbb8bd8a62f016}{size\-\_\-type} n)
+\item 
+void \hyperlink{classAllocator_af156a6a50a8c62c70e40cf342a3b64cb}{destroy} (\hyperlink{classAllocator_a7df4693123ad6d168217e3853cd15495}{pointer} p)
+\item 
+const int \& \hyperlink{classAllocator_a107cf1e09d9119f2819c0b5f6cdbe20b}{operator\mbox{[}$\,$\mbox{]}} (int i) const 
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAllocator_a90b542896a12519c57ff48f0a1291c9e}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Valid, valid1)
+\item 
+\hyperlink{classAllocator_acec28ca417b8b946021f18228d22bb87}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Valid, valid2)
+\item 
+\hyperlink{classAllocator_a3fd9ba1b92c874cc6fa6503c5d3b4bce}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Valid, valid3)
+\item 
+\hyperlink{classAllocator_a5d8aa32f38104b88ef58647a227266b2}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Allocate, allocate1)
+\item 
+\hyperlink{classAllocator_ade09a76b974fd01d33b91e595c825f1f}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Allocate, allocate2)
+\item 
+\hyperlink{classAllocator_a93dbf33652db4593a80a05eb69ff1ed3}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Allocate, allocate3)
+\item 
+\hyperlink{classAllocator_adefad2b824e680717c7c5bdd742a06ae}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Deallocate, deallocate1)
+\item 
+\hyperlink{classAllocator_a896dab9fc43bd2baed0f4caba2fc7765}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Deallocate, deallocate2)
+\item 
+\hyperlink{classAllocator_a6ffad5be55856c6b143314bc004de63c}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Deallocate, deallocate3)
+\item 
+\hyperlink{classAllocator_a1df2f9e7022ad5a23b23548ad720927f}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Constructor, construct\-\_\-int)
+\item 
+\hyperlink{classAllocator_a3326fa9a413a093541e2169ce0ddb18f}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Constructor, construct\-\_\-exception)
+\item 
+\hyperlink{classAllocator_aa16d8dc2877fc7e5e00f3781081c8d5f}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator\-Constructor, construct\-\_\-double)
+\item 
+\hyperlink{classAllocator_a47a944e121d002ee031c535f8d0131dc}{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T} (Test\-Allocator2, index)
+\item 
+int \& \hyperlink{classAllocator_ae57d6a9fc29cb1c1e61f58f90f7f3123}{operator\mbox{[}$\,$\mbox{]}} (int i)
+\item 
+bool \hyperlink{classAllocator_a45091854a38a5abf184cc442d2af4022}{valid} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{classAllocator_a5cd222e9e4d8a10d78cd8411ffcf93c2}{a} \mbox{[}N\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classAllocator_ad178871e3d4888c233e0a39e2fe36982}{operator==} (const \hyperlink{classAllocator}{Allocator} \&, const \hyperlink{classAllocator}{Allocator} \&)
+\item 
+bool \hyperlink{classAllocator_aa59693ec7b26e5ee0a2a4bc71db20040}{operator!=} (const \hyperlink{classAllocator}{Allocator} \&lhs, const \hyperlink{classAllocator}{Allocator} \&rhs)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classAllocator_a5815a9c01f756005eb19d0ae5aded3be}{\index{Allocator@{Allocator}!const\-\_\-pointer@{const\-\_\-pointer}}
+\index{const\-\_\-pointer@{const\-\_\-pointer}!Allocator@{Allocator}}
+\subsubsection[{const\-\_\-pointer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ typedef const {\bf value\-\_\-type}$\ast$ {\bf Allocator}$<$ T, N $>$\-::{\bf const\-\_\-pointer}}}\label{classAllocator_a5815a9c01f756005eb19d0ae5aded3be}
+\hypertarget{classAllocator_aff863afcf191fb225997ae2d51314bf5}{\index{Allocator@{Allocator}!const\-\_\-reference@{const\-\_\-reference}}
+\index{const\-\_\-reference@{const\-\_\-reference}!Allocator@{Allocator}}
+\subsubsection[{const\-\_\-reference}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ typedef const {\bf value\-\_\-type}\& {\bf Allocator}$<$ T, N $>$\-::{\bf const\-\_\-reference}}}\label{classAllocator_aff863afcf191fb225997ae2d51314bf5}
+\hypertarget{classAllocator_a6b650764260187e63d5098f5f38046c2}{\index{Allocator@{Allocator}!difference\-\_\-type@{difference\-\_\-type}}
+\index{difference\-\_\-type@{difference\-\_\-type}!Allocator@{Allocator}}
+\subsubsection[{difference\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ typedef std\-::ptrdiff\-\_\-t {\bf Allocator}$<$ T, N $>$\-::{\bf difference\-\_\-type}}}\label{classAllocator_a6b650764260187e63d5098f5f38046c2}
+\hypertarget{classAllocator_a7df4693123ad6d168217e3853cd15495}{\index{Allocator@{Allocator}!pointer@{pointer}}
+\index{pointer@{pointer}!Allocator@{Allocator}}
+\subsubsection[{pointer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ typedef {\bf value\-\_\-type}$\ast$ {\bf Allocator}$<$ T, N $>$\-::{\bf pointer}}}\label{classAllocator_a7df4693123ad6d168217e3853cd15495}
+\hypertarget{classAllocator_adf0658602f352de03fa2d2c4f23903e9}{\index{Allocator@{Allocator}!reference@{reference}}
+\index{reference@{reference}!Allocator@{Allocator}}
+\subsubsection[{reference}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ typedef {\bf value\-\_\-type}\& {\bf Allocator}$<$ T, N $>$\-::{\bf reference}}}\label{classAllocator_adf0658602f352de03fa2d2c4f23903e9}
+\hypertarget{classAllocator_aec4c70d3e80d2b7d11bbb8bd8a62f016}{\index{Allocator@{Allocator}!size\-\_\-type@{size\-\_\-type}}
+\index{size\-\_\-type@{size\-\_\-type}!Allocator@{Allocator}}
+\subsubsection[{size\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ typedef std\-::size\-\_\-t {\bf Allocator}$<$ T, N $>$\-::{\bf size\-\_\-type}}}\label{classAllocator_aec4c70d3e80d2b7d11bbb8bd8a62f016}
+\hypertarget{classAllocator_ad5c51a128db2150e67259f697ef457b9}{\index{Allocator@{Allocator}!value\-\_\-type@{value\-\_\-type}}
+\index{value\-\_\-type@{value\-\_\-type}!Allocator@{Allocator}}
+\subsubsection[{value\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ typedef T {\bf Allocator}$<$ T, N $>$\-::{\bf value\-\_\-type}}}\label{classAllocator_ad5c51a128db2150e67259f697ef457b9}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classAllocator_a4e2bf5fbf94e2206bb72b71ad4b7ffb3}{\index{Allocator@{Allocator}!Allocator@{Allocator}}
+\index{Allocator@{Allocator}!Allocator@{Allocator}}
+\subsubsection[{Allocator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::{\bf Allocator} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_a4e2bf5fbf94e2206bb72b71ad4b7ffb3}
+O(1) in space O(1) in time Throws a bad\-\_\-alloc exception, if N is less than sizeof(\-T) + (2 $\ast$ sizeof(int)) Otherwise, initializes memory by adding beginning and ending sentinels 
+
+\subsection{Member Function Documentation}
+\hypertarget{classAllocator_a8a19b7b675f5434c28c68fb15de86f36}{\index{Allocator@{Allocator}!allocate@{allocate}}
+\index{allocate@{allocate}!Allocator@{Allocator}}
+\subsubsection[{allocate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf pointer} {\bf Allocator}$<$ T, N $>$\-::allocate (
+\begin{DoxyParamCaption}
+\item[{{\bf size\-\_\-type}}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_a8a19b7b675f5434c28c68fb15de86f36}
+O(1) in space O(n) in time after allocation there must be enough space left for a valid block the smallest allowable block is sizeof(\-T) + (2 $\ast$ sizeof(int)) choose the first block that fits throw a bad\-\_\-alloc exception, if n $<$= 0 or no possible fit \hypertarget{classAllocator_a6e6a26ece248be1eb76ed691c085cd65}{\index{Allocator@{Allocator}!construct@{construct}}
+\index{construct@{construct}!Allocator@{Allocator}}
+\subsubsection[{construct}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ void {\bf Allocator}$<$ T, N $>$\-::construct (
+\begin{DoxyParamCaption}
+\item[{{\bf pointer}}]{p, }
+\item[{{\bf const\-\_\-reference}}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_a6e6a26ece248be1eb76ed691c085cd65}
+O(1) in space O(1) in time \hypertarget{classAllocator_a731b4679156aeb43318224fc8e41e4ce}{\index{Allocator@{Allocator}!deallocate@{deallocate}}
+\index{deallocate@{deallocate}!Allocator@{Allocator}}
+\subsubsection[{deallocate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ void {\bf Allocator}$<$ T, N $>$\-::deallocate (
+\begin{DoxyParamCaption}
+\item[{{\bf pointer}}]{p, }
+\item[{{\bf size\-\_\-type}}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_a731b4679156aeb43318224fc8e41e4ce}
+O(1) in space O(1) in time after deallocation adjacent free blocks must be coalesced throw an invalid\-\_\-argument exception, if p is invalid \hypertarget{classAllocator_af156a6a50a8c62c70e40cf342a3b64cb}{\index{Allocator@{Allocator}!destroy@{destroy}}
+\index{destroy@{destroy}!Allocator@{Allocator}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ void {\bf Allocator}$<$ T, N $>$\-::destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf pointer}}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_af156a6a50a8c62c70e40cf342a3b64cb}
+O(1) in space O(1) in time \hypertarget{classAllocator_a90b542896a12519c57ff48f0a1291c9e}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Valid}]{, }
+\item[{valid1}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a90b542896a12519c57ff48f0a1291c9e}
+\hypertarget{classAllocator_acec28ca417b8b946021f18228d22bb87}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Valid}]{, }
+\item[{valid2}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_acec28ca417b8b946021f18228d22bb87}
+\hypertarget{classAllocator_a3fd9ba1b92c874cc6fa6503c5d3b4bce}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Valid}]{, }
+\item[{valid3}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a3fd9ba1b92c874cc6fa6503c5d3b4bce}
+\hypertarget{classAllocator_a5d8aa32f38104b88ef58647a227266b2}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Allocate}]{, }
+\item[{allocate1}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a5d8aa32f38104b88ef58647a227266b2}
+\hypertarget{classAllocator_ade09a76b974fd01d33b91e595c825f1f}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Allocate}]{, }
+\item[{allocate2}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_ade09a76b974fd01d33b91e595c825f1f}
+\hypertarget{classAllocator_a93dbf33652db4593a80a05eb69ff1ed3}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Allocate}]{, }
+\item[{allocate3}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a93dbf33652db4593a80a05eb69ff1ed3}
+\hypertarget{classAllocator_adefad2b824e680717c7c5bdd742a06ae}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Deallocate}]{, }
+\item[{deallocate1}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_adefad2b824e680717c7c5bdd742a06ae}
+\hypertarget{classAllocator_a896dab9fc43bd2baed0f4caba2fc7765}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Deallocate}]{, }
+\item[{deallocate2}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a896dab9fc43bd2baed0f4caba2fc7765}
+\hypertarget{classAllocator_a6ffad5be55856c6b143314bc004de63c}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Deallocate}]{, }
+\item[{deallocate3}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a6ffad5be55856c6b143314bc004de63c}
+\hypertarget{classAllocator_a1df2f9e7022ad5a23b23548ad720927f}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Constructor}]{, }
+\item[{construct\-\_\-int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a1df2f9e7022ad5a23b23548ad720927f}
+\hypertarget{classAllocator_a3326fa9a413a093541e2169ce0ddb18f}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Constructor}]{, }
+\item[{construct\-\_\-exception}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a3326fa9a413a093541e2169ce0ddb18f}
+\hypertarget{classAllocator_aa16d8dc2877fc7e5e00f3781081c8d5f}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator\-Constructor}]{, }
+\item[{construct\-\_\-double}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_aa16d8dc2877fc7e5e00f3781081c8d5f}
+\hypertarget{classAllocator_a47a944e121d002ee031c535f8d0131dc}{\index{Allocator@{Allocator}!F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}}
+\index{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T@{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}!Allocator@{Allocator}}
+\subsubsection[{F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ {\bf Allocator}$<$ T, N $>$\-::F\-R\-I\-E\-N\-D\-\_\-\-T\-E\-S\-T (
+\begin{DoxyParamCaption}
+\item[{Test\-Allocator2}]{, }
+\item[{index}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a47a944e121d002ee031c535f8d0131dc}
+O(1) in space O(1) in time operator \mbox{[}\mbox{]} to use for gtest \href{https://code.google.com/p/googletest/wiki/AdvancedGuide#Private_Class_Members}{\tt https\-://code.\-google.\-com/p/googletest/wiki/\-Advanced\-Guide\#\-Private\-\_\-\-Class\-\_\-\-Members} \hypertarget{classAllocator_ae57d6a9fc29cb1c1e61f58f90f7f3123}{\index{Allocator@{Allocator}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Allocator@{Allocator}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ int\& {\bf Allocator}$<$ T, N $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classAllocator_ae57d6a9fc29cb1c1e61f58f90f7f3123}
+\hypertarget{classAllocator_a107cf1e09d9119f2819c0b5f6cdbe20b}{\index{Allocator@{Allocator}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Allocator@{Allocator}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ const int\& {\bf Allocator}$<$ T, N $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classAllocator_a107cf1e09d9119f2819c0b5f6cdbe20b}
+O(1) in space O(1) in time $<$your documentation$>$=\char`\"{}\char`\"{}$>$ \hypertarget{classAllocator_a45091854a38a5abf184cc442d2af4022}{\index{Allocator@{Allocator}!valid@{valid}}
+\index{valid@{valid}!Allocator@{Allocator}}
+\subsubsection[{valid}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ bool {\bf Allocator}$<$ T, N $>$\-::valid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{classAllocator_a45091854a38a5abf184cc442d2af4022}
+O(1) in space O(n) in time valid checks for the following two conditions to ensure correct state
+\begin{DoxyEnumerate}
+\item All free and allocated bytes add up to N
+\item Ensure that there are no two free blocks in a row 
+\end{DoxyEnumerate}
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classAllocator_aa59693ec7b26e5ee0a2a4bc71db20040}{\index{Allocator@{Allocator}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!Allocator@{Allocator}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ bool operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Allocator}$<$ T, N $>$ \&}]{lhs, }
+\item[{const {\bf Allocator}$<$ T, N $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classAllocator_aa59693ec7b26e5ee0a2a4bc71db20040}
+\hypertarget{classAllocator_ad178871e3d4888c233e0a39e2fe36982}{\index{Allocator@{Allocator}!operator==@{operator==}}
+\index{operator==@{operator==}!Allocator@{Allocator}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ bool operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Allocator}$<$ T, N $>$ \&}]{, }
+\item[{const {\bf Allocator}$<$ T, N $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classAllocator_ad178871e3d4888c233e0a39e2fe36982}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classAllocator_a5cd222e9e4d8a10d78cd8411ffcf93c2}{\index{Allocator@{Allocator}!a@{a}}
+\index{a@{a}!Allocator@{Allocator}}
+\subsubsection[{a}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , std\-::size\-\_\-t N$>$ char {\bf Allocator}$<$ T, N $>$\-::a\mbox{[}N\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}}\label{classAllocator_a5cd222e9e4d8a10d78cd8411ffcf93c2}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Allocator_8h}{Allocator.\-h}\end{DoxyCompactItemize}
