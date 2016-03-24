@@ -253,30 +253,31 @@ TEST(TestAllocatorDeallocate, deallocate2) {
 ;}
 TEST(TestAllocatorDeallocate, deallocate3) {
 
-    Allocator<int, 100> x;
-    int* p = x.allocate(1);
-    int* q = x.allocate(1);
-    int* r = x.allocate(1);
-    int* s = x.allocate(1);
-    int* t = x.allocate(1);
+    Allocator<double, 200> x;
+    double* p = x.allocate(1);
+    double* q = x.allocate(2);
+    double* r = x.allocate(3);
+    double* s = x.allocate(4);
+    double* t = x.allocate(5);
     // ASSERT_EQ(true, false);
-
+	
     if (p != nullptr && q != nullptr && r != nullptr && s != nullptr && t != nullptr) {
-        x.deallocate(p, 1);
-        ASSERT_EQ(x[0], 4);
-        ASSERT_EQ(x[8], 4);
-        x.deallocate(q, 1);
-        ASSERT_EQ(x[0], 16);
-        ASSERT_EQ(x[20], 16);
-        x.deallocate(s, 1);
-        ASSERT_EQ(x[36], 4);
-        ASSERT_EQ(x[44], 4);
-        x.deallocate(r, 1);
-        ASSERT_EQ(x[0], 40);
-        ASSERT_EQ(x[44], 40);
-        x.deallocate(t, 1);
-        ASSERT_EQ(x[0], 92);
-        ASSERT_EQ(x[96], 92);
+        ASSERT_EQ(x[0], -8);
+        ASSERT_EQ(x[12], -8);
+        ASSERT_EQ(x[160], 32);
+        ASSERT_EQ(x[196], 32);
+        x.deallocate(q, 2);
+        ASSERT_EQ(x[16], 16);
+        ASSERT_EQ(x[36], 16);
+        x.deallocate(s, 4);
+        ASSERT_EQ(x[72], 32);
+        ASSERT_EQ(x[108], 32);
+        x.deallocate(r, 3);
+        ASSERT_EQ(x[16], 88);
+        ASSERT_EQ(x[108], 88);
+        x.deallocate(t, 5);
+        ASSERT_EQ(x[16], 176);
+        ASSERT_EQ(x[196], 176);
     } else {
         ASSERT_EQ(true, false);
     }
