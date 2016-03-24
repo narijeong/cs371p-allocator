@@ -197,7 +197,7 @@ public:
          * throw a bad_alloc exception, if n <= 0 or no possible fit
          */
         pointer allocate(size_type n) {
-            if(n <= 0)
+            if((int)n <= 0)
                 throw std::bad_alloc();
 
             n = n * sizeof(T);

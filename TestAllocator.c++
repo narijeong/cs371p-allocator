@@ -197,32 +197,75 @@ TEST(TestAllocatorConstructor, construct_double) {
 
 TEST(TestAllocatorValid, valid1) {
 	Allocator<int, 105> x;
-	ASSERT_EQ(x.valid(), true);}
+	ASSERT_EQ(x.valid(), true);
+}
 
 TEST(TestAllocatorValid, valid2) {
 	Allocator<double, 160> x;
 	ASSERT_EQ(x.valid(), true);
-	}
+}
 
 TEST(TestAllocatorValid, valid3) {
 	Allocator<char, 150> x;
-	ASSERT_EQ(x.valid(), true);}
+	ASSERT_EQ(x.valid(), true);
+}
 
 TEST(TestAllocatorAllocate, allocate1) {
 	Allocator<int, 105> x;
 	int *position = &x[0]+1;
-	ASSERT_EQ(x.allocate(2), position);}
+	ASSERT_EQ(x.allocate(2), position);
+}
 
 TEST(TestAllocatorAllocate, allocate2) {
 	Allocator<double, 150> x;
 	double* position = x.allocate(2);
-	ASSERT_EQ((void*) x.allocate(5), ((int*) (position+2)+2));}
+	ASSERT_EQ((void*) x.allocate(5), ((int*) (position+2)+2));
+}
 
 TEST(TestAllocatorAllocate, allocate3) {
     Allocator<int, 100> x;
     int* first = x.allocate(10);
     int* second = x.allocate(10);
-;}
+}
+
+TEST(TestAllocatorAllocate, allocate_toomuch){
+    Allocator <int, 100> x;
+    try{
+        x.allocate(26);
+    }catch(const std::bad_alloc& e){
+        SUCCEED();
+        return;
+    }catch(...){
+        FAIL();
+    }
+    FAIL();
+}
+
+TEST(TestAllocatorAllocate, allocate_negative){
+    Allocator <int, 100> x;
+    try{
+        x.allocate(-10);
+    }catch(const std::bad_alloc& e){
+        SUCCEED();
+        return;
+    }catch(...){
+        FAIL();
+    }
+    FAIL();
+}
+
+TEST(TestAllocatorAllocate, allocate_zero){
+    Allocator <int, 100> x;
+    try{
+        x.allocate(0);
+    }catch(const std::bad_alloc& e){
+        SUCCEED();
+        return;
+    }catch(...){
+        FAIL();
+    }
+    FAIL();
+}
 
 TEST(TestAllocatorDeallocate, deallocate1) {
 	Allocator<int, 100> x;
@@ -234,7 +277,7 @@ TEST(TestAllocatorDeallocate, deallocate1) {
 	ASSERT_EQ(x[24], 4);
 	ASSERT_EQ(x[36], -8);
 	ASSERT_EQ(x[52], 40);
-	;}
+}
 
 TEST(TestAllocatorDeallocate, deallocate2) {    
 	Allocator<char, 100> x;
@@ -250,7 +293,8 @@ TEST(TestAllocatorDeallocate, deallocate2) {
     }
     ASSERT_EQ(x[0], 92);
     ASSERT_EQ(x[96], 92);
-;}
+}
+
 TEST(TestAllocatorDeallocate, deallocate3) {
 
     Allocator<double, 200> x;
@@ -281,5 +325,22 @@ TEST(TestAllocatorDeallocate, deallocate3) {
     } else {
         ASSERT_EQ(true, false);
     }
+}
+
+TEST(TestAllocatorDeallocate, exception) {
+    Allocator<int, 100> x;
+    int *p = x.allocate(4); //-16..-16, 68..68
+    int *p2 = x.allocate(1); //-16..-16, -4..-4, 56..56
+    int *p3 = x.allocate(2); //-16..-16, -4..-4, -8..-8, 40..40
+    try{
+        x.deallocate(p - 10, 1); 
+    }
+    catch(const std::invalid_argument& e){
+        SUCCEED();
+        return;
+    }catch(...){
+        FAIL();
+    }
+    FAIL();
 }
 
